@@ -111,7 +111,7 @@ body {
     height: 100%;
     background: url('images/hero.jpg') no-repeat;
     background-size: cover;
-    background-position: center bottom;
+    background-position: center 60%;
 }
 
 
