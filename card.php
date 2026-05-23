@@ -82,10 +82,10 @@ $site_url = $base . "/index.php?g=" . $guest_hash;
 
     <!-- Removed fade-in class to prevent 'washed out' capture during animation -->
     <div id="capture" class="card-container" style="background: #fdfaf7 !important; border: 1px solid #ddd; opacity: 1 !important; transform: none !important; width: 450px !important;">
-        <div class="card-hero" style="background: #fdfaf7 url('images/story_cartoon.png') no-repeat center center / cover; height: 320px; border-bottom: 2px solid #decba4;"></div>
+        <div class="card-hero" style="background: #fdfaf7 url('images/story.jpg') no-repeat center center / cover; height: 320px; border-bottom: 2px solid #decba4;"></div>
         
         <div class="religious-icon" style="margin-top: -40px; width: 70px; height: 70px; background: #ffffff !important; opacity: 1 !important;">
-            <img src="images/sai_ganesh.png" alt="Sai Ganesh" style="width: 100%; border-radius: 50%; display: block; opacity: 1 !important;">
+            
         </div>
 
         <div class="card-content" style="background: #fdfaf7 !important; padding: 15px 30px 40px; opacity: 1 !important;">

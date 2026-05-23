@@ -30,7 +30,7 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
     <!-- Open Graph / WhatsApp Preview -->
     <meta property="og:title" content="Engagement of Saymen & Disha">
     <meta property="og:description" content="You are cordially invited to celebrate our wedding! Click to view your personal invitation.">
-    <meta property="og:image" content="https://<?php echo $_SERVER['HTTP_HOST'] . rtrim(dirname($_SERVER['PHP_SELF']), '/'); ?>/images/story_cartoon.png">
+    <meta property="og:image" content="https://<?php echo $_SERVER['HTTP_HOST'] . rtrim(dirname($_SERVER['PHP_SELF']), '/'); ?>/images/story.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
@@ -87,12 +87,7 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
         <section id="invitation">
             <div class="invitation-card fade-in">
                 
-                <!-- Sai Baba & Ganesh now at the top of the content card -->
-                <div style="display: flex; justify-content: center; margin-top: -80px; margin-bottom: 30px;">
-                    <div class="religious-photo-card" style="width: 120px; height: 120px; background: white; border-radius: 50%; padding: 10px; border: 3px solid var(--secondary); box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
-                        <img src="images/sai_ganesh.png" alt="Sai Baba & Ganesh" style="width: 100%; border-radius: 50%;">
-                    </div>
-                </div>
+                <!-- Religious Photo removed -->
 
                 <?php if ($guest): ?>
                 <div style="margin-bottom: 40px; text-align: center;">
@@ -143,79 +138,12 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
                 </div>
 
                 <div class="program-grid">
-                    <h3 class="serif" data-i18n="program_title" style="font-size: 2.2rem; margin-bottom: 30px; text-align: center;">Wedding Schedule</h3>
+                    <h3 class="serif" data-i18n="program_title" style="font-size: 2.2rem; margin-bottom: 30px; text-align: center;">Engagement Schedule</h3>
                     
-                    <?php if ($invitation_days >= 3): ?>
-                    <!-- Haldi -->
-                    <div class="program-item" onclick="toggleTimeline(this)">
+                    <div class="program-item active" onclick="toggleTimeline(this)">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <div style="text-align: left;">
-                                <div style="font-size: 0.8rem; letter-spacing: 2px; color: var(--primary); font-weight: 700; margin-bottom: 5px; opacity: 0.8;">23. JUN 2026</div>
-                                <div style="font-weight: 800; color: var(--secondary); font-size: 1.2rem;" data-i18n="tag1_title">Haldi & Sagan Ceremony</div>
-                            </div>
-                            <span class="toggle-icon">▼</span>
-                        </div>
-                        <div class="timeline-details">
-                            <div class="timeline-row">
-                                <span class="timeline-time">02:00 PM</span>
-                                <span class="timeline-event" data-i18n="t1_e1">Welcome of Guests</span>
-                            </div>
-                            <div class="timeline-row">
-                                <span class="timeline-time">03:00 PM</span>
-                                <span class="timeline-event" data-i18n="t1_e2">Haldi Ceremony</span>
-                            </div>
-                            <div class="timeline-row">
-                                <span class="timeline-time">05:00 PM</span>
-                                <span class="timeline-event" data-i18n="t1_e3">Nashta</span>
-                            </div>
-                            <div class="timeline-row">
-                                <span class="timeline-time">06:00 PM</span>
-                                <span class="timeline-event" data-i18n="t1_e4">Sagan Ceremony</span>
-                            </div>
-                            <div class="timeline-row">
-                                <span class="timeline-time">09:00 PM</span>
-                                <span class="timeline-event" data-i18n="t1_e5">Dinner</span>
-                            </div>
-                            <div style="margin-top: 15px; padding-top: 10px; border-top: 1px dashed #eee; font-size: 0.8rem; color: var(--primary); font-weight: 600; text-align: left;">
-                                <span data-i18n="dress_code_t1">Dress Code: Pink or Purple (Optional)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <?php endif; ?>
-
-                    <?php if ($invitation_days >= 2): ?>
-                    <!-- Wedding -->
-                    <div class="program-item" onclick="toggleTimeline(this)">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <div style="text-align: left;">
-                                <div style="font-size: 0.8rem; letter-spacing: 2px; color: var(--primary); font-weight: 700; margin-bottom: 5px; opacity: 0.8;">24. JUN 2026</div>
-                                <div style="font-weight: 800; color: var(--secondary); font-size: 1.2rem;" data-i18n="tag2_title">Wedding Ceremony</div>
-                            </div>
-                            <span class="toggle-icon">▼</span>
-                        </div>
-                        <div class="timeline-details">
-                            <div class="timeline-row">
-                                <span class="timeline-time">12:00 PM</span>
-                                <span class="timeline-event" data-i18n="t2_e1">Welcome of Guests</span>
-                            </div>
-                            <div class="timeline-row">
-                                <span class="timeline-time">01:00 PM</span>
-                                <span class="timeline-event" data-i18n="t2_e2">Nashta</span>
-                            </div>
-                            <div class="timeline-row">
-                                <span class="timeline-time">02:00 PM</span>
-                                <span class="timeline-event" data-i18n="t2_e3">Baraat</span>
-                            </div>
-                        </div>
-                    </div>
-                    <?php endif; ?>
-
-                    <!-- Reception -->
-                    <div class="program-item" onclick="toggleTimeline(this)">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <div style="text-align: left;">
-                                <div style="font-size: 0.8rem; letter-spacing: 2px; color: var(--primary); font-weight: 700; margin-bottom: 5px; opacity: 0.8;">25. JUN 2026</div>
-                                <div style="font-weight: 800; color: var(--secondary); font-size: 1.2rem;" data-i18n="tag3_title">Reception</div>
+                                <div style="font-weight: 800; color: var(--secondary); font-size: 1.2rem;" data-i18n="engagement_title">Engagement Party</div>
                             </div>
                             <span class="toggle-icon">▼</span>
                         </div>
@@ -238,7 +166,7 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
                             </div>
                         </div>
                     </div>
-                    </div>
+                </div>
                 </div>
 
                 <!-- Location Section -->
@@ -315,7 +243,7 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
         </section>
 
         <div class="family-cartoon-container fade-in">
-            <img src="images/story_cartoon.png" alt="Family Photo">
+            <img src="images/story.jpg" alt="Family Photo">
             <div class="contact-section" style="margin-top: 25px; text-align: center; padding: 20px; border-top: 1px solid #eee;">
                 <h4 style="margin-bottom: 20px; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; color: var(--secondary); font-weight: 700;">Kontakt</h4>
                 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; line-height: 1.6;">
@@ -328,7 +256,7 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
         <!-- Story Section -->
         <section id="story">
             <div class="story-card fade-in">
-                <div><img src="images/story_cartoon.png" alt="Couple"></div>
+                <div><img src="images/story.jpg" alt="Couple"></div>
                 <div>
                     <h2 class="serif" data-i18n="story_title" style="font-size: 2.2rem; margin-bottom: 20px;">Special Message from Saymen & Disha</h2>
                     <p style="color: #666; font-size: 1.1rem;" data-i18n="story_text">Join us on our journey to our big day. We can't wait to celebrate this special moment with our family and closest friends.</p>

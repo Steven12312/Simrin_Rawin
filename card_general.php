@@ -30,7 +30,7 @@ $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']),
         }
         .card-hero {
             height: 180px;
-            background: #fdfaf7 url('images/story_cartoon.png') no-repeat center center / cover;
+            background: #fdfaf7 url('images/story.jpg') no-repeat center center / cover;
             position: relative;
             border-bottom: 2px solid #decba4;
         }
@@ -118,7 +118,7 @@ $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']),
         <div class="card-hero"></div>
         
         <div class="religious-icon">
-            <img src="images/sai_ganesh.png" alt="Sai Ganesh">
+            
         </div>
 
         <div class="card-content">
