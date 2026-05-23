@@ -1,0 +1,392 @@
+:root {
+    --primary: #8e1c1c;
+    /* Deep wedding red */
+    --secondary: #b8860b;
+    /* Golden accent */
+    --bg-light: #fdfaf7;
+    --text-dark: #2d2d2d;
+    --white: #ffffff;
+    --gold-gradient: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --shadow-heavy: 0 20px 50px rgba(0, 0, 0, 0.1);
+    --radius: 40px;
+}
+
+/* Language Switcher */
+.lang-switch {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 6px 12px;
+    border-radius: 50px;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    gap: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.lang-btn {
+    cursor: pointer;
+    opacity: 0.4;
+    transition: 0.3s;
+    text-decoration: none;
+    color: var(--text-dark);
+}
+
+.lang-btn.active {
+    opacity: 1;
+    color: var(--primary);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+.serif {
+    font-family: 'Playfair Display', serif;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Modern Hero Section */
+.hero {
+    height: 100vh;
+    min-height: 600px;
+    position: relative;
+    overflow: hidden;
+    background: #e8c69f;
+    /* Fallback */
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.hero-image-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    background: url('images/hero_animated.png') no-repeat;
+    background-size: cover;
+    background-position: center top;
+}
+
+
+.hero h1 {
+    font-size: clamp(1.8rem, 8vw, 3.5rem);
+    margin-bottom: 20px;
+}
+
+.wedding-date {
+    display: inline-block;
+    padding: 8px 25px;
+    background: var(--gold-gradient);
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* Invitation Card */
+.invitation-card {
+    background: var(--white);
+    margin-top: 40px;
+    /* Increased spacing under hero */
+    position: relative;
+    z-index: 10;
+    padding: 50px 25px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-heavy);
+    text-align: center;
+    border-top: 5px solid var(--secondary);
+}
+
+.religious-photo-container {
+    max-width: 400px;
+    margin: 40px auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-heavy);
+    border: 3px solid var(--secondary);
+    padding: 10px;
+    background: #fff;
+}
+
+.religious-photo-container img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+
+.family-cartoon-container {
+    max-width: 900px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+.family-cartoon-container img {
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: var(--shadow-heavy);
+    border: 8px solid #fff;
+    outline: 2px solid var(--secondary);
+    padding: 10px;
+    background: #fff;
+}
+
+
+.invitation-header {
+    margin-bottom: 40px;
+}
+
+.ornament {
+    width: 100px;
+    height: 1px;
+    background: var(--secondary);
+    margin: 30px auto;
+    position: relative;
+}
+
+.ornament::after {
+    content: '◈';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--white);
+    padding: 0 10px;
+    color: var(--secondary);
+}
+
+/* Interaction: Timeline/Program */
+.program-grid {
+    margin: 50px 0;
+}
+
+.program-item {
+    background: #f9f9f9;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.program-item:hover {
+    background: #fff;
+    border-color: var(--secondary);
+    transform: translateY(-2px);
+}
+
+.program-item.active {
+    background: #fff;
+    border-color: var(--primary);
+    box-shadow: var(--shadow-soft);
+}
+
+/* RSVP Form */
+.rsvp-form-container {
+    background: #fafafa;
+    padding: 40px 20px;
+    border-radius: 30px;
+    margin-top: 50px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 16px;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    background: white;
+    font-size: 1rem;
+    font-family: 'Outfit', sans-serif;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.btn-luxury {
+    background: var(--gold-gradient);
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 10px 20px rgba(184, 134, 11, 0.3);
+    transition: transform 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-luxury:hover {
+    transform: translateY(-3px);
+}
+
+/* User Journey Section */
+.story-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin: 100px 0;
+    background: white;
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+}
+
+.story-card img {
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: var(--shadow-heavy);
+}
+
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Delay for cascade effect */
+.religious-photo-container.fade-in {
+    animation-delay: 0.1s;
+}
+
+.invitation-card.fade-in {
+    animation-delay: 0.2s;
+}
+
+.family-cartoon-container.fade-in {
+    animation-delay: 0.3s;
+}
+
+.story-card.fade-in {
+    animation-delay: 0.4s;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero {
+        height: 70vh;
+    }
+
+    .hero-content {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .hero {
+        height: 100vh;
+        min-height: 600px;
+    }
+
+    .religious-photo-container {
+        max-width: 200px;
+        /* Even smaller for mobile to see both figures easily */
+        margin: 15px auto;
+    }
+
+    .family-cartoon-container {
+        margin: 30px auto;
+    }
+
+    .family-cartoon-container img {
+        padding: 5px;
+        border-width: 4px;
+    }
+
+    .invitation-card {
+        padding: 40px 15px;
+        margin-top: 20px;
+    }
+
+    .story-card {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .story-card img {
+        margin-bottom: 20px;
+    }
+
+    .invitation-header {
+        font-size: 0.95rem;
+    }
+}
+
+footer {
+    padding: 80px 20px;
+    text-align: center;
+    background: #111;
+    color: white;
+    margin-top: 80px;
+}

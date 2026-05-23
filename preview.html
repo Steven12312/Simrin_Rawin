@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Selection - Siman & Yashica</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .timeline-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            background: #fff;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+
+        .program-item.active .timeline-details {
+            max-height: 500px;
+            padding: 20px;
+            border: 1px solid #eee;
+        }
+
+        .timeline-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .timeline-row:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-time {
+            font-weight: 700;
+            color: var(--primary);
+            min-width: 90px;
+        }
+
+        .timeline-event {
+            flex-grow: 1;
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .toggle-icon {
+            transition: 0.3s;
+            float: right;
+            opacity: 0.5;
+        }
+
+        .program-item.active .toggle-icon {
+            transform: rotate(180deg);
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="lang-switch">
+        <span class="lang-btn active" onclick="setLang('en')">EN</span>
+        <span style="opacity: 0.2">|</span>
+        <span class="lang-btn" onclick="setLang('de')">DE</span>
+    </div>
+
+    <header class="hero">
+        <div class="hero-image-wrapper">
+            <div class="hero-image"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content fade-in">
+                <p class="serif" data-i18n="hero_sub" style="font-size: 1.5rem; margin-bottom: 5px; opacity: 0.8;">We
+                    are getting married!</p>
+                <h1>Siman & Yashica</h1>
+                <div class="wedding-date">Summer 2026</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Religious Photo -->
+        <div class="religious-photo-container fade-in">
+            <img src="images/sai_ganesh.png" alt="Sai Baba & Ganesh">
+        </div>
+
+        <section id="invitation">
+            <div class="invitation-card fade-in">
+                <div class="invitation-header"
+                    style="line-height: 1.8; margin-bottom: 40px; text-transform: none; letter-spacing: 1px; font-size: 1.1rem; color: #555;">
+                    <div data-i18n="blessings"
+                        style="font-style: italic; color: var(--secondary); margin-bottom: 15px;">
+                        With blessings of<br>
+                        <strong>Late Smt. Laxmi Devi & Late Shr. Hondraj Tchanra</strong><br>
+                        &<br>
+                        <strong>Late Smt. Chambeli Devi & Late Shr. Dev Raj Gandhi</strong>
+                    </div>
+                    <div data-i18n="parents_invite" style="margin-top: 20px; font-weight: 400;">
+                        With their blessings, <strong>Mrs. Sapna & Monoj Kumar Tchanra</strong><br>
+                        request the honour of your presence at the wedding celebration of our son
+                    </div>
+                </div>
+
+                <h2 class="serif"
+                    style="font-size: clamp(2.5rem, 8vw, 4rem); color: var(--primary); margin: 20px 0; line-height: 1.1;">
+                    Siman<br>
+                    <span style="font-size: 0.5em; font-family: 'Outfit'; display: block; margin: 10px 0;">Weds</span>
+                    Yashica<br>
+                    <span
+                        style="font-size: 0.3em; font-family: 'Outfit'; display: block; margin-top: 10px; font-weight: 400; text-transform: none; color: #666; letter-spacing: 1px;">Daughter
+                        of Mrs Sangeeta & Ram Ratan Malhotra</span>
+                </h2>
+
+                <div class="ornament"></div>
+
+                <div class="rsvp-guest-name" style="margin: 30px 0; font-size: 1.4rem; color: #444; line-height: 1.6;">
+                    <span data-i18n="invite_prefix">Dear</span> Mr. Monoj & Mrs. Sapna Tchanra,<br>
+                    <span data-i18n="invite_text">we cordially invite you to our son's wedding celebration.</span>
+                </div>
+
+                <div class="program-grid">
+                    <h3 class="serif" data-i18n="program_title"
+                        style="font-size: 2.2rem; margin-bottom: 30px; text-align: center;">Wedding Schedule</h3>
+
+                    <div class="program-item" onclick="toggleTimeline(this)">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div style="font-weight: 800; color: var(--secondary); font-size: 1.2rem;"
+                                data-i18n="tag1_title">Haldi Mehndi Sagan</div>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="timeline-details">
+                            <div class="timeline-row"><span class="timeline-time">04:00 PM</span><span
+                                    class="timeline-event" data-i18n="t1_e1">Arrival & Welcome</span></div>
+                            <div class="timeline-row"><span class="timeline-time">06:00 PM</span><span
+                                    class="timeline-event" data-i18n="t1_e2">Mehndi & Music</span></div>
+                        </div>
+                    </div>
+
+                    <div class="program-item" onclick="toggleTimeline(this)">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div style="font-weight: 800; color: var(--secondary); font-size: 1.2rem;"
+                                data-i18n="tag2_title">Wedding Ceremony</div>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="timeline-details">
+                            <div class="timeline-row"><span class="timeline-time">12:00 PM</span><span
+                                    class="timeline-event" data-i18n="t2_e1">Welcome of Guest</span></div>
+                            <div class="timeline-row"><span class="timeline-time">01:00 PM</span><span
+                                    class="timeline-event" data-i18n="t2_e2">Nashta (Lunch)</span></div>
+                            <div class="timeline-row"><span class="timeline-time">02:00 PM</span><span
+                                    class="timeline-event" data-i18n="t2_e3">Sehra Bandi</span></div>
+                        </div>
+                    </div>
+
+                    <div class="program-item" onclick="toggleTimeline(this)">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div style="font-weight: 800; color: var(--secondary); font-size: 1.2rem;"
+                                data-i18n="tag3_title">Reception</div>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="timeline-details">
+                            <div class="timeline-row"><span class="timeline-time">04:00 PM</span><span
+                                    class="timeline-event" data-i18n="t3_e1">Light music and Cocktails</span></div>
+                            <div class="timeline-row"><span class="timeline-time">06:00 PM</span><span
+                                    class="timeline-event" data-i18n="t3_e2">Nashta</span></div>
+                            <div class="timeline-row"><span class="timeline-time">09:00 PM</span><span
+                                    class="timeline-event" data-i18n="t3_e3">Gala Dinner</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rsvp-form-container">
+                    <h3 class="serif" data-i18n="rsvp_title" style="margin-bottom: 30px;">Your RSVP</h3>
+                    <form>
+                        <div class="form-group" style="margin-bottom: 30px; text-align: left;">
+                            <label data-i18n="rsvp_label">Will you attend?</label>
+                            <select
+                                style="width: 100%; padding: 18px; border-radius: 15px; border: 1px solid #eee; font-family: inherit;">
+                                <option data-i18n="opt_choose">Please choose...</option>
+                                <option data-i18n="opt_yes">Yes, I/we will be there!</option>
+                                <option data-i18n="opt_no">No, unfortunately I/we cannot make it.</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn-luxury" data-i18n="btn_send">Send RSVP</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Family Photo Section -->
+        <div class="family-cartoon-container fade-in">
+            <img src="images/family_cartoon_final.jpg" alt="Family Photo">
+        </div>
+
+        <section id="story">
+            <div class="story-card fade-in">
+                <div><img src="images/story_animated.png" alt="Couple"></div>
+                <div>
+                    <h2 class="serif" data-i18n="story_title" style="font-size: 2.5rem; margin-bottom: 20px;">Our Story
+                    </h2>
+                    <p style="color: #666; font-size: 1.1rem;" data-i18n="story_text">Two hearts have found each other.
+                        Join us on our journey to our big day. We can't wait to celebrate this special moment with our
+                        family and closest friends.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer style="padding: 100px 0; text-align: center; background: #000; color: #fff; margin-top: 100px;">
+        <div class="container">
+            <h2 class="serif" style="font-size: 2.5rem; letter-spacing: 2px;">Siman & Yashica</h2>
+            <div class="ornament"></div>
+            <p style="margin-top: 20px; opacity: 0.3; letter-spacing: 5px;">#SIMANWEDSYASHICA</p>
+        </div>
+    </footer>
+
+    <script>
+        const i18n = {
+            en: {
+                hero_sub: "We are getting married!",
+                blessings: "With blessings of<br><strong>Late Smt. Laxmi Devi & Late Shr. Hondraj Tchanra</strong><br>&<br><strong>Late Smt. Chambeli Devi & Late Shr. Dev Raj Gandhi</strong>",
+                parents_invite: "With their blessings, <strong>Mrs. Sapna & Monoj Kumar Tchanra</strong><br>request the honour of your presence at the wedding celebration of our son",
+                invite_prefix: "Dear",
+                invite_text: "we cordially invite you to our son's wedding celebration.",
+                program_title: "Wedding Schedule",
+                tag1_title: "Haldi Mehndi Sagan",
+                t1_e1: "Arrival & Welcome",
+                t1_e2: "Mehndi & Music",
+                tag2_title: "Wedding Ceremony",
+                t2_e1: "Welcome of Guest",
+                t2_e2: "Nashta (Lunch)",
+                t2_e3: "Sehra Bandi",
+                tag3_title: "Reception",
+                t3_e1: "Light music and Cocktails",
+                t3_e2: "Nashta",
+                t3_e3: "Gala Dinner",
+                rsvp_title: "Your RSVP",
+                rsvp_label: "Will you attend?",
+                opt_choose: "Please choose...",
+                opt_yes: "Yes, I/we will be there!",
+                opt_no: "No, unfortunately I/we cannot make it.",
+                btn_send: "Send RSVP",
+                story_title: "Our Story",
+                story_text: "Two hearts have found each other. Join us on our journey to our big day. We can't wait to celebrate this special moment with our family and closest friends."
+            },
+            de: {
+                hero_sub: "Wir heiraten!",
+                blessings: "Mit dem Segen von<br><strong>Verst. Smt. Laxmi Devi & Verst. Shr. Hondraj Tchanra</strong><br>&<br><strong>Verst. Smt. Chambeli Devi & Verst. Shr. Dev Raj Gandhi</strong>",
+                parents_invite: "Mit ihrem Segen bitten <strong>Mrs. Sapna & Monoj Kumar Tchanra</strong> um die Ehre Ihrer Anwesenheit bei der Hochzeitsfeier unseres Sohnes",
+                invite_prefix: "Sehr geehrte/r",
+                invite_text: "wir laden Sie herzlich zur Hochzeitsfeier unseres Sohnes ein.",
+                program_title: "Hochzeits-Ablauf",
+                tag1_title: "Haldi Mehndi Sagan",
+                t1_e1: "Ankunft & Empfang",
+                t1_e2: "Mehndi & Musik",
+                tag2_title: "Hochzeits-Zeremonie",
+                t2_e1: "Empfang der Gäste",
+                t2_e2: "Nashta (Mittagessen)",
+                t2_e3: "Sehra Bandi",
+                tag3_title: "Reception",
+                t3_e1: "Leichte Musik & Cocktails",
+                t3_e2: "Nashta",
+                t3_e3: "Gala Dinner",
+                rsvp_title: "Ihre Rückmeldung",
+                rsvp_label: "Kommen Sie?",
+                opt_choose: "Bitte wählen...",
+                opt_yes: "Ja, wir kommen sehr gerne!",
+                opt_no: "Leider können wir nicht teilnehmen.",
+                btn_send: "Zusage senden",
+                story_title: "Unsere Geschichte",
+                story_text: "Zwei Herzen haben zueinander gefunden. Begleitet uns auf dem Weg zu unserem großen Tag. Wir können es kaum erwarten, diesen Moment mit euch zu feiern."
+            }
+        };
+
+        function setLang(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[lang][key]) el.innerHTML = i18n[lang][key];
+            });
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.textContent.toLowerCase() === lang));
+            localStorage.setItem('wedding_lang', lang);
+        }
+
+        function toggleTimeline(el) {
+            const isActive = el.classList.contains('active');
+            document.querySelectorAll('.program-item').forEach(item => item.classList.remove('active'));
+            if (!isActive) el.classList.add('active');
+        }
+
+        const savedLang = localStorage.getItem('wedding_lang') || 'en';
+        setLang(savedLang);
+    </script>
+</body>
+
+</html>
