@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum & Datenschutz - Hochzeit Siman & Yashica</title>
+    <title>Impressum & Datenschutz - Hochzeit Saymen & Disha</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root { --primary: #700000; --secondary: #c5a059; }
@@ -34,7 +34,7 @@
         <p>Diese Datenschutzerklärung informiert Sie über die Art, den Umfang und den Zweck der Verarbeitung von personenbezogenen Daten auf dieser Webseite.</p>
 
         <h2>2. Datenerfassung auf dieser Webseite</h2>
-        <p><strong>RSVP-Formular:</strong> Wenn Sie Ihre Rückmeldung über das Formular senden, speichern wir die von Ihnen eingegebenen Daten (Status der Zusage, Namen der teilnehmenden Personen). Diese Daten dienen ausschließlich der Organisation der Hochzeitsfeier.</p>
+        <p><strong>RSVP-Formular:</strong> Wenn Sie Ihre Rückmeldung über das Formular senden, speichern wir die von Ihnen eingegebenen Daten (Status der Zusage, Namen der teilnehmenden Personen). Diese Daten dienen ausschließlich der Organisation der Verlobungsfeier.</p>
         <p><strong>Hosting:</strong> Diese Webseite wird bei der Neue Medien Münnich (ALL-INKL.COM) gehostet. Der Hoster erfasst standardmäßig Server-Logfiles, auf die wir keinen direkten Einfluss haben.</p>
 
         <h2>3. Ihre Rechte</h2>
@@ -45,7 +45,7 @@
     </section>
 
     <div style="text-align: center; margin-top: 40px; color: #999; font-size: 0.8rem;">
-        &copy; 2026 Siman & Yashica Wedding
+        &copy; 2026 Saymen & Disha Wedding
     </div>
 </body>
 </html>

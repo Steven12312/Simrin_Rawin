@@ -23,14 +23,14 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding of Siman & Yashica</title>
+    <title>Engagement of Saymen & Disha</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     
     <!-- Open Graph / WhatsApp Preview -->
-    <meta property="og:title" content="Wedding of Siman & Yashica">
+    <meta property="og:title" content="Engagement of Saymen & Disha">
     <meta property="og:description" content="You are cordially invited to celebrate our wedding! Click to view your personal invitation.">
-    <meta property="og:image" content="https://<?php echo $_SERVER['HTTP_HOST'] . rtrim(dirname($_SERVER['PHP_SELF']), '/'); ?>/images/family_cartoon_final.jpg">
+    <meta property="og:image" content="https://<?php echo $_SERVER['HTTP_HOST'] . rtrim(dirname($_SERVER['PHP_SELF']), '/'); ?>/images/story_cartoon.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
@@ -105,22 +105,30 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
                 <?php endif; ?>
                 <div class="invitation-header" style="line-height: 1.8; margin-bottom: 40px; text-transform: none; letter-spacing: 1px; font-size: 1.1rem; color: #555;">
                     <div data-i18n="blessings" style="font-style: italic; color: var(--secondary); margin-bottom: 15px;">
-                        With the blessings of<br>
-                        <strong>Late Smt. Laxmi Devi & Late Shri Hondraj Tchanra</strong><br>
-                        &<br>
-                        <strong>Late Smt. Chambeli Devi & Late Shri Dev Raj Gandhi</strong>
+                        With the blessings of our Grandparents<br>
+                        <strong>[Grandparents Placeholder]</strong>
                     </div>
-                    <div data-i18n="parents_invite" style="margin-top: 20px; font-weight: 400;">
-                        <strong>Mrs. Sapna & Mr. Manoj Kumar Tchanra</strong><br>
-                        request the honour of your presence at the wedding celebration of their son
+                    
+                    <div style="display: flex; justify-content: space-between; text-align: center; margin-top: 25px; font-weight: 400; font-size: 0.95rem; gap: 15px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 0.75rem; letter-spacing: 1px; color: var(--secondary); text-transform: uppercase; margin-bottom: 5px;">Bride's Parents</div>
+                            <strong>Mr. Hitesh & Mrs. Harsha Arenja</strong>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="font-size: 0.75rem; letter-spacing: 1px; color: var(--secondary); text-transform: uppercase; margin-bottom: 5px;">Groom's Parents</div>
+                            <strong>Mr. Rajinder Singh & Mrs. Dimple Kapoor</strong>
+                        </div>
+                    </div>
+
+                    <div data-i18n="parents_invite" style="margin-top: 25px; font-weight: 400;">
+                        request the honour of your presence at the engagement celebration of our children
                     </div>
                 </div>
                 
                 <h2 class="serif" style="font-size: clamp(2.5rem, 8vw, 4rem); color: var(--primary); margin: 20px 0; line-height: 1.1;">
-                    Siman<br>
-                    <span style="font-size: 0.5em; font-family: 'Outfit'; display: block; margin: 10px 0;">weds</span>
-                    Yashica<br>
-                    <span style="font-size: 0.4em; font-family: 'Outfit'; display: block; margin-top: 10px; font-weight: 600; text-transform: none; color: #666; letter-spacing: 1px;">D/O Mrs. Sangeeta & Mr. Ram Ratan Malhotra</span>
+                    Saymen<br>
+                    <span style="font-size: 0.5em; font-family: 'Outfit'; display: block; margin: 10px 0;">&amp;</span>
+                    Disha<br>
                 </h2>
                 
                 <div class="ornament"></div>
@@ -236,12 +244,12 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
                 <!-- Location Section -->
                 <div style="margin: 40px 0; padding: 30px; background: #fff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #eee;">
                     <div style="font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; color: var(--secondary); margin-bottom: 10px; font-weight: 700;" data-i18n="location_title">The Venue</div>
-                    <h3 class="serif" style="font-size: 1.8rem; margin-bottom: 15px;">Golden Lounge Eventhaus</h3>
+                    <h3 class="serif" style="font-size: 1.8rem; margin-bottom: 15px;">Royal Stage</h3>
                     <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">
-                        Überseering 9<br>
-                        22297 Hamburg
+                        Im Hegen 16<br>
+                        22113 Glinde
                     </p>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Golden+Lounge+Eventhaus+%C3%9Cberseering+9+22297+Hamburg" 
+                    <a href="https://www.google.com/maps/search/?api=1&query=Royal+Stage+Im+Hegen+16+22113+Glinde" 
                        target="_blank" 
                        class="btn-luxury" 
                        style="display: inline-block; width: auto; padding: 12px 30px; font-size: 0.9rem; text-decoration: none;">
@@ -307,13 +315,12 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
         </section>
 
         <div class="family-cartoon-container fade-in">
-            <img src="images/family_cartoon_final.jpg" alt="Family Photo">
+            <img src="images/story_cartoon.png" alt="Family Photo">
             <div class="contact-section" style="margin-top: 25px; text-align: center; padding: 20px; border-top: 1px solid #eee;">
                 <h4 style="margin-bottom: 20px; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; color: var(--secondary); font-weight: 700;">Kontakt</h4>
                 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; line-height: 1.6;">
-                    <div><strong>Manoj Kumar Tchanra</strong><br><a href="tel:+4917664984917" style="color: inherit; text-decoration: none; opacity: 0.8;">+49 176 64984917</a></div>
-                    <div><strong>Steven Tchanra</strong><br><a href="tel:+4917657039844" style="color: inherit; text-decoration: none; opacity: 0.8;">+49 176 57039844</a></div>
-                    <div><strong>Ervin Tchanra</strong><br><a href="tel:+4917620934855" style="color: inherit; text-decoration: none; opacity: 0.8;">+49 176 20934855</a></div>
+                    <div><strong>Hitesh Arenja</strong><br><a href="tel:+" style="color: inherit; text-decoration: none; opacity: 0.8;">+49 ...</a></div>
+                    <div><strong>Rajinder Singh Kapoor</strong><br><a href="tel:+" style="color: inherit; text-decoration: none; opacity: 0.8;">+49 ...</a></div>
                 </div>
             </div>
         </div>
@@ -323,7 +330,7 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
             <div class="story-card fade-in">
                 <div><img src="images/story_cartoon.png" alt="Couple"></div>
                 <div>
-                    <h2 class="serif" data-i18n="story_title" style="font-size: 2.2rem; margin-bottom: 20px;">Special Message from Siman & Yashica</h2>
+                    <h2 class="serif" data-i18n="story_title" style="font-size: 2.2rem; margin-bottom: 20px;">Special Message from Saymen & Disha</h2>
                     <p style="color: #666; font-size: 1.1rem;" data-i18n="story_text">Join us on our journey to our big day. We can't wait to celebrate this special moment with our family and closest friends.</p>
                 </div>
             </div>
@@ -332,9 +339,9 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
 
     <footer style="padding: 100px 0; text-align: center; background: #000; color: #fff; margin-top: 100px;">
         <div class="container">
-            <h2 class="serif" style="font-size: 2.5rem; letter-spacing: 2px;">Siman & Yashica</h2>
+            <h2 class="serif" style="font-size: 2.5rem; letter-spacing: 2px;">Saymen & Disha</h2>
             <div class="ornament"></div>
-            <p style="margin-top: 20px; opacity: 0.3; letter-spacing: 5px;">#SIMANWEDSYASHICA</p>
+            <p style="margin-top: 20px; opacity: 0.3; letter-spacing: 5px;">#SAYMENANDDISHA</p>
             <p style="margin-top: 40px; font-size: 0.7rem; opacity: 0.4;">
                 <a href="legal.php" style="color: #fff; text-decoration: none;" data-i18n="legal_link">Impressum & Datenschutz</a>
             </p>
@@ -344,11 +351,11 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
     <script>
         const i18n = {
             en: {
-                hero_sub: "We are getting married!",
+                hero_sub: "We are getting engaged!",
                 blessings: "With the blessings of<br><strong>Late Smt. Laxmi Devi & Late Shri Hondraj Tchanra</strong><br>&<br><strong>Late Smt. Chambeli Devi & Late Shri Dev Raj Gandhi</strong>",
-                parents_invite: "<strong>Mrs. Sapna & Mr. Manoj Kumar Tchanra</strong><br>request the honour of your presence at the wedding celebration of our son",
+                parents_invite: "<strong>Mrs. Sapna & Mr. Manoj Kumar Tchanra</strong><br>request the honour of your presence at the engagement celebration of our son",
                 invite_prefix: "Dear",
-                invite_text: "cordially invite you to the wedding celebration of our son.",
+                invite_text: "cordially invite you to the engagement celebration of our son.",
                 generic_invite_text: "We look forward to celebrating with you!",
                 invalid_link_title: "Invitation link not found.",
                 invalid_link_text: "Please open the personal link from your message to RSVP.",
@@ -382,7 +389,7 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
                 rsvp_status_required: "Please choose whether you will attend.",
                 rsvp_attendee_required: "Please select at least one person for the RSVP.",
                 rsvp_error: "Error sending RSVP. Please try again.",
-                story_title: "Special Message from Siman & Yashica",
+                story_title: "Special Message from Saymen & Disha",
                 story_text: "Join us on our journey to our big day. We can't wait to celebrate this special moment with our family and closest friends.",
                 scroll_text: "Scroll for details",
                 location_title: "The Venue",
@@ -393,10 +400,10 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
                 legal_link: "Legal Notice & Privacy"
             },
             de: {
-                hero_sub: "Wir heiraten!",
+                hero_sub: "Wir verloben uns!",
                 blessings: "Mit dem Segen von<br><strong>Verst. Smt. Laxmi Devi & Verst. Shri Hondraj Tchanra</strong><br>&<br><strong>Verst. Smt. Chambeli Devi & Verst. Shri Dev Raj Gandhi</strong>",
-                parents_invite: "<strong>Mrs. Sapna & Mr. Manoj Kumar Tchanra</strong><br>bitten um die Ehre Ihrer Anwesenheit bei der Hochzeitsfeier unseres Sohnes",
-                invite_text: "laden Sie herzlich zur Hochzeitsfeier unseres Sohnes ein.",
+                parents_invite: "<strong>Mrs. Sapna & Mr. Manoj Kumar Tchanra</strong><br>bitten um die Ehre Ihrer Anwesenheit bei der Verlobungsfeier unseres Sohnes",
+                invite_text: "laden Sie herzlich zur Verlobungsfeier unseres Sohnes ein.",
                 generic_invite_text: "Wir freuen uns darauf, mit euch zu feiern!",
                 invalid_link_title: "Einladungslink nicht gefunden.",
                 invalid_link_text: "Bitte nutzen Sie den persoenlichen Link aus Ihrer Nachricht fuer die Rueckmeldung.",
@@ -430,7 +437,7 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
                 rsvp_status_required: "Bitte waehlen Sie zuerst eine Rueckmeldung aus.",
                 rsvp_attendee_required: "Bitte waehlen Sie mindestens eine teilnehmende Person aus.",
                 rsvp_error: "Die Rueckmeldung konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
-                story_title: "Special Message from Siman & Yashica",
+                story_title: "Special Message from Saymen & Disha",
                 story_text: "Begleitet uns auf dem Weg zu unserem großen Tag. Wir können es kaum erwarten, diesen Moment mit euch zu feiern.",
                 scroll_text: "Für Details nach unten wischen",
                 location_title: "Der Veranstaltungsort",

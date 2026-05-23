@@ -1,4 +1,4 @@
-# Wedding Website: Siman & Yashica
+# Wedding Website: Saymen & Disha
 
 ## Features
 - **Personalized Links**: Each guest receives a unique URL (e.g., `wedding.com/?g=xyz123`).

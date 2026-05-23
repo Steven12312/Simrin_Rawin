@@ -12,7 +12,7 @@ $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']),
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitation - Siman & Yashica</title>
+    <title>Invitation - Saymen & Disha</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -130,7 +130,7 @@ $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']),
             </div>
 
             <h1 class="serif" style="color: #700000; font-size: 2.2rem; margin: 0; line-height: 1;">
-                Siman
+                Saymen
             </h1>
             <div class="parent-info">
                 Son of <strong>Mrs. Sapna & Mr. Manoj Kumar Tchanra</strong>
@@ -139,7 +139,7 @@ $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']),
             <div style="font-size: 0.9rem; font-family: 'Outfit'; margin: 5px 0; color: #333; font-weight: 400;">weds</div>
             
             <h1 class="serif" style="color: #700000; font-size: 2.2rem; margin: 0; line-height: 1;">
-                Yashica
+                Disha
             </h1>
             <div class="parent-info">
                 Daughter of <strong>Mrs. Sangeeta & Mr. Ram Ratan Malhotra</strong>
@@ -169,8 +169,8 @@ $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']),
             </div>
 
             <div class="venue-box">
-                <p style="color: #700000; font-weight: 800; font-size: 1rem; margin: 0 0 2px;">Golden Lounge Eventhaus</p>
-                <p style="color: #444; font-size: 0.85rem; font-weight: 600; margin: 0;">Überseering 9, 22297 Hamburg</p>
+                <p style="color: #700000; font-weight: 800; font-size: 1rem; margin: 0 0 2px;">Royal Stage</p>
+                <p style="color: #444; font-size: 0.85rem; font-weight: 600; margin: 0;">Im Hegen 16, 22113 Glinde</p>
             </div>
         </div>
     </div>
@@ -180,7 +180,7 @@ $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']),
         document.getElementById('downloadBtn').onclick = function() {
             generateImage(canvas => {
                 const link = document.createElement('a');
-                link.download = 'Siman_Yashica_Full_Invitation.jpg';
+                link.download = 'Saymen_Disha_Full_Invitation.jpg';
                 link.href = canvas.toDataURL("image/jpeg", 0.95);
                 link.click();
                 this.innerHTML = "Download Invitation Image";

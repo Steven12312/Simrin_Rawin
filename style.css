@@ -1,10 +1,10 @@
 :root {
-    --primary: #8e1c1c;
-    /* Deep wedding red */
-    --secondary: #b8860b;
-    /* Golden accent */
+    --primary: #111827;
+    /* Elegant Dark */
+    --secondary: #d4af37;
+    /* Royal Gold */
     --bg-light: #fdfaf7;
-    --text-dark: #2d2d2d;
+    --text-dark: #111827;
     --white: #ffffff;
     --gold-gradient: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
     --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);

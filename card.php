@@ -26,7 +26,7 @@ $site_url = $base . "/index.php?g=" . $guest_hash;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitation Card - Siman & Yashica</title>
+    <title>Invitation Card - Saymen & Disha</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -97,9 +97,9 @@ $site_url = $base . "/index.php?g=" . $guest_hash;
             <div class="card-title serif" style="color: #8a6d3b !important; margin-top: 5px; font-weight: 700; letter-spacing: 3px; font-size: 1.1rem;">You are Invited</div>
             
             <h1 class="card-main serif" style="color: #700000 !important; font-size: 2.5rem; margin: 10px 0; line-height: 1; font-weight: 800;">
-                Siman<br>
+                Saymen<br>
                 <span style="font-size: 0.5em; font-family: 'Outfit'; display: block; margin: 5px 0; color: #333333 !important; font-weight: 400;">weds</span>
-                Yashica
+                Disha
             </h1>
             
             <div style="width: 100%; height: 1px; background: #decba4; margin: 15px 0; opacity: 0.5;"></div>
@@ -107,10 +107,10 @@ $site_url = $base . "/index.php?g=" . $guest_hash;
             <p style="margin-bottom: 20px; color: #222222 !important; font-size: 1.1rem; font-weight: 700; line-height: 1.3;">We look forward to celebrating our special day with you!</p>
             
             <div style="margin-top: 20px; background: #fcf4e8; padding: 15px; border-radius: 12px; border: 1px solid #eee;">
-                <p style="color: #700000 !important; font-weight: 800; font-size: 1.2rem; margin-bottom: 3px;">Golden Lounge Eventhaus</p>
-                <p style="color: #444444 !important; font-size: 1rem; margin-bottom: 10px; font-weight: 600;">Überseering 9, 22297 Hamburg</p>
+                <p style="color: #700000 !important; font-weight: 800; font-size: 1.2rem; margin-bottom: 3px;">Royal Stage</p>
+                <p style="color: #444444 !important; font-size: 1rem; margin-bottom: 10px; font-weight: 600;">Im Hegen 16, 22113 Glinde</p>
                 
-                <a href="https://www.google.com/maps/search/?api=1&query=Golden+Lounge+Eventhaus+%C3%9Cberseering+9+22297+Hamburg" 
+                <a href="https://www.google.com/maps/search/?api=1&query=Royal+Stage+Im+Hegen+16+22113+Glinde" 
                    data-html2canvas-ignore
                    style="color: var(--secondary); font-weight: 700; text-decoration: underline; font-size: 0.95rem;">
                    Open in Maps / Navigation

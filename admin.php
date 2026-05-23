@@ -483,7 +483,7 @@ $guests = $stmt->fetchAll();
                     $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
                     $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']), '/');
                     $gen_link = $base . "/index.php";
-                    $gen_share_text = "We cordially invite you to the wedding celebration of our son Siman with Yashica.\n\nYou can find all details and the program here:\n$gen_link\n\nWe look forward to celebrating with you!\n\nSapna & Manoj Tchanra";
+                    $gen_share_text = "We cordially invite you to the engagement celebration of our son Saymen with Disha.\n\nYou can find all details and the program here:\n$gen_link\n\nWe look forward to celebrating with you!\n\nSapna & Manoj Tchanra";
                 ?>
                 <button class="btn-luxury" style="background: #007bff; border-color: #007bff;" onclick='shareCardImg("card_general.php", <?php echo json_encode($gen_share_text); ?>, "general")'>📱 Share General Card (WhatsApp)</button>
             </div>
@@ -559,7 +559,7 @@ $guests = $stmt->fetchAll();
                                     $card_url = $base . "/card.php?g=" . $g['guest_hash'];
                                     
                                     $greeting_en = build_smart_greeting($g, 'en');
-                                    $share_text_en = "$greeting_en,\n\nWe cordially invite you to the wedding celebration of our son Siman with Yashica.\n\nYou can find all details and the RSVP here:\n$link\n\nWe look forward to celebrating with you!\n\nSapna & Manoj Tchanra";
+                                    $share_text_en = "$greeting_en,\n\nWe cordially invite you to the engagement celebration of our son Saymen with Disha.\n\nYou can find all details and the RSVP here:\n$link\n\nWe look forward to celebrating with you!\n\nSapna & Manoj Tchanra";
                                     
                                     $phone = $g['phone_number'] ?? '';
                                 ?>
