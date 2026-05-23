@@ -70,11 +70,11 @@ body {
 
 /* Modern Hero Section */
 .hero {
-    height: 100vh;
-    min-height: 600px;
+    height: 85vh;
+    min-height: 500px;
     position: relative;
     overflow: hidden;
-    background: #e8c69f;
+    background: #111827;
     /* Fallback */
 }
 
@@ -332,7 +332,9 @@ label {
     }
 
     .hero {
-        height: 70vh;
+        height: auto;
+        aspect-ratio: 775 / 820;
+        min-height: unset;
     }
 
     .hero-content {
