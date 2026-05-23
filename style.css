@@ -111,7 +111,7 @@ body {
     height: 100%;
     background: url('images/hero.jpg') no-repeat;
     background-size: cover;
-    background-position: center top;
+    background-position: center center;
 }
 
 
@@ -343,10 +343,7 @@ label {
         font-size: 1.6rem;
     }
 
-    .hero {
-        height: 100vh;
-        min-height: 600px;
-    }
+    /* removed 100vh override */
 
     .religious-photo-container {
         max-width: 200px;
