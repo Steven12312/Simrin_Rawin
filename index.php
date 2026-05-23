@@ -29,7 +29,7 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
     
     <!-- Open Graph / WhatsApp Preview -->
     <meta property="og:title" content="Engagement of Saymen & Disha">
-    <meta property="og:description" content="You are cordially invited to celebrate our wedding! Click to view your personal invitation.">
+    <meta property="og:description" content="You are cordially invited to celebrate our engagement! Click to view your personal invitation.">
     <meta property="og:image" content="https://<?php echo $_SERVER['HTTP_HOST'] . rtrim(dirname($_SERVER['PHP_SELF']), '/'); ?>/images/story.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -140,12 +140,12 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
                 <div class="program-grid">
                     <h3 class="serif" data-i18n="program_title" style="font-size: 2.2rem; margin-bottom: 30px; text-align: center;">Engagement Schedule</h3>
                     
-                    <div class="program-item active" onclick="toggleTimeline(this)">
+                    <div class="program-item active" >
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <div style="text-align: left;">
                                 <div style="font-weight: 800; color: var(--secondary); font-size: 1.2rem;" data-i18n="engagement_title">Engagement Party</div>
                             </div>
-                            <span class="toggle-icon">▼</span>
+                            
                         </div>
                         <div class="timeline-details">
                             <div class="timeline-row">
@@ -281,14 +281,14 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
             en: {
                 hero_sub: "We are getting engaged!",
                 blessings: "With the blessings of<br><strong>Late Smt. Laxmi Devi & Late Shri Hondraj Tchanra</strong><br>&<br><strong>Late Smt. Chambeli Devi & Late Shri Dev Raj Gandhi</strong>",
-                parents_invite: "<strong>Mrs. Sapna & Mr. Manoj Kumar Tchanra</strong><br>request the honour of your presence at the engagement celebration of our son",
+                parents_invite: "<strong>Rajinder Singh & Dimple Kapoor</strong><br>request the honour of your presence at the engagement celebration of our children",
                 invite_prefix: "Dear",
-                invite_text: "cordially invite you to the engagement celebration of our son.",
+                invite_text: "cordially invite you to the engagement celebration of our children.",
                 generic_invite_text: "We look forward to celebrating with you!",
                 invalid_link_title: "Invitation link not found.",
                 invalid_link_text: "Please open the personal link from your message to RSVP.",
                 missing_link_text: "Please use your personal invitation link to send an RSVP.",
-                program_title: "Wedding Schedule",
+                program_title: "Engagement Schedule",
                 tag1_title: "Haldi & Sagan Ceremony",
                 t1_e1: "Welcome of Guests",
                 t1_e2: "Haldi Ceremony",
@@ -296,7 +296,7 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
                 t1_e4: "Sagan Ceremony",
                 t1_e5: "Dinner",
                 dress_code_t1: "Dresscode: Pink or Purple (Optional - if possible/no pressure!)",
-                tag2_title: "Wedding Ceremony",
+                tag2_title: "Engagement Ceremony",
                 t2_e1: "Welcome of Guests",
                 t2_e2: "Nashta",
                 t2_e3: "Baraat",
@@ -330,13 +330,13 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
             de: {
                 hero_sub: "Wir verloben uns!",
                 blessings: "Mit dem Segen von<br><strong>Verst. Smt. Laxmi Devi & Verst. Shri Hondraj Tchanra</strong><br>&<br><strong>Verst. Smt. Chambeli Devi & Verst. Shri Dev Raj Gandhi</strong>",
-                parents_invite: "<strong>Mrs. Sapna & Mr. Manoj Kumar Tchanra</strong><br>bitten um die Ehre Ihrer Anwesenheit bei der Verlobungsfeier unseres Sohnes",
-                invite_text: "laden Sie herzlich zur Verlobungsfeier unseres Sohnes ein.",
+                parents_invite: "<strong>Rajinder Singh & Dimple Kapoor</strong><br>bitten um die Ehre Ihrer Anwesenheit bei der Verlobungsfeier unserer Kinder",
+                invite_text: "laden Sie herzlich zur Verlobungsfeier unserer Kinder ein.",
                 generic_invite_text: "Wir freuen uns darauf, mit euch zu feiern!",
                 invalid_link_title: "Einladungslink nicht gefunden.",
                 invalid_link_text: "Bitte nutzen Sie den persoenlichen Link aus Ihrer Nachricht fuer die Rueckmeldung.",
                 missing_link_text: "Bitte nutzen Sie Ihren persoenlichen Einladungslink fuer die Rueckmeldung.",
-                program_title: "Hochzeits-Ablauf",
+                program_title: "Verlobungs-Ablauf",
                 tag1_title: "Haldi & Sagan Ceremony",
                 t1_e1: "Willkommen der Gäste",
                 t1_e2: "Haldi Zeremonie",
@@ -344,7 +344,7 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
                 t1_e4: "Sagan Zeremonie",
                 t1_e5: "Abendessen",
                 dress_code_t1: "Dresscode: Pink oder Lila (Optional - nur falls ihr die Möglichkeit seht, kein Zwang!)",
-                tag2_title: "Hochzeits-Zeremonie",
+                tag2_title: "Verlobungs-Zeremonie",
                 t2_e1: "Willkommen der Gäste",
                 t2_e2: "Nashta",
                 t2_e3: "Baraat",

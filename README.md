@@ -1,7 +1,7 @@
 # Wedding Website: Saymen & Disha
 
 ## Features
-- **Personalized Links**: Each guest receives a unique URL (e.g., `wedding.com/?g=xyz123`).
+- **Personalized Links**: Each guest receives a unique URL (e.g., `engagement.com/?g=xyz123`).
 - **Dynamic Content**: Shows specific invitation days (1, 2, or 3 days) based on the guest record.
 - **Family RSVP**: Allows the main guest to RSVP for themselves and their invited family members.
 - **Indian Aesthetic**: Modern design with traditional Indian elements.

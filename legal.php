@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum & Datenschutz - Hochzeit Saymen & Disha</title>
+    <title>Impressum & Datenschutz - Verlobung Saymen & Disha</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root { --primary: #700000; --secondary: #c5a059; }
@@ -21,7 +21,7 @@
         <h1>Impressum</h1>
         <p>Verantwortlich für den Inhalt dieser Webseite:</p>
         <p>
-            <strong>Sapna Tchanra</strong><br>
+            <strong>Dimple Kapoor</strong><br>
             Kurfürstenstraße 5<br>
             63452 Hanau<br>
             E-Mail: steventchanra123@gmail.com
@@ -45,7 +45,7 @@
     </section>
 
     <div style="text-align: center; margin-top: 40px; color: #999; font-size: 0.8rem;">
-        &copy; 2026 Saymen & Disha Wedding
+        &copy; 2026 Saymen & Disha Engagement
     </div>
 </body>
 </html>

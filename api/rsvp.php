@@ -91,7 +91,7 @@ try {
     $guestFullName = build_guest_display_name($guest);
     $statusLabel = $status === 'accepted' ? 'ZUGESAGT' : 'ABGESAGT';
 
-    $email_body = "Hallo,\n\nein Gast hat auf die Hochzeitseinladung geantwortet!\n\n";
+    $email_body = "Hallo,\n\nein Gast hat auf die Verlobungseinladung geantwortet!\n\n";
     $email_body .= "Name: " . $guestFullName . "\n";
     $email_body .= "Status: " . $statusLabel . "\n";
     $email_body .= "Teilnehmende Gaeste: " . $attendingList . "\n";
@@ -99,7 +99,7 @@ try {
     $email_body .= "Du kannst alle Details im Admin-Panel einsehen.";
 
     $mailHost = $_SERVER['HTTP_HOST'] ?? 'localhost';
-    $headers = "From: Wedding RSVP <no-reply@" . $mailHost . ">\r\n";
+    $headers = "From: Engagement RSVP <no-reply@" . $mailHost . ">\r\n";
     $headers .= "Reply-To: " . $to . "\r\n";
     $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 

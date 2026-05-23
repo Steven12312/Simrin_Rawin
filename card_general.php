@@ -133,7 +133,7 @@ $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']),
                 Saymen
             </h1>
             <div class="parent-info">
-                Son of <strong>Mrs. Sapna & Mr. Manoj Kumar Tchanra</strong>
+                Son of <strong>Rajinder Singh & Dimple Kapoor</strong>
             </div>
             
             <div style="font-size: 0.9rem; font-family: 'Outfit'; margin: 5px 0; color: #333; font-weight: 400;">weds</div>
@@ -149,7 +149,7 @@ $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']),
 
             <div class="schedule-section">
                 <div class="day-title">
-                    <span>Wedding Ceremony</span>
+                    <span>Engagement Ceremony</span>
                     <span class="day-date">24. JUN 2026</span>
                 </div>
                 <div class="event-row"><span class="event-time">12:00 PM</span> <span class="event-desc">Welcome of Guests</span></div>

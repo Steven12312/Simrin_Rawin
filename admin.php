@@ -85,7 +85,7 @@ if ($setupMode || $forcePasswordReset || !isset($_SESSION['admin_logged_in'])) {
     <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Admin Login - Wedding</title>
+        <title>Admin Login - Engagement</title>
         <link rel="stylesheet" href="style.css">
         <style>
             body { display: flex; align-items: center; justify-content: center; height: 100vh; background: #f0f2f5; }
@@ -292,7 +292,7 @@ $guests = $stmt->fetchAll();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Wedding</title>
+    <title>Admin Dashboard - Engagement</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
@@ -351,7 +351,7 @@ $guests = $stmt->fetchAll();
                 <small>Confirmed Persons</small>
             </div>
             <div class="stat-card" style="border-left-color: var(--primary);">
-                <h4>Wedding RSVP</h4>
+                <h4>Engagement RSVP</h4>
                 <div class="value"><?php echo $ts['wedding_accepted']; ?> / <?php echo $ts['wedding_invited']; ?></div>
                 <small>Confirmed Persons</small>
             </div>
@@ -483,7 +483,7 @@ $guests = $stmt->fetchAll();
                     $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
                     $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']), '/');
                     $gen_link = $base . "/index.php";
-                    $gen_share_text = "We cordially invite you to the engagement celebration of our son Saymen with Disha.\n\nYou can find all details and the program here:\n$gen_link\n\nWe look forward to celebrating with you!\n\nSapna & Manoj Tchanra";
+                    $gen_share_text = "We cordially invite you to the engagement celebration of our children Saymen with Disha.\n\nYou can find all details and the program here:\n$gen_link\n\nWe look forward to celebrating with you!\n\nRajinder Singh & Dimple Kapoor";
                 ?>
                 <button class="btn-luxury" style="background: #007bff; border-color: #007bff;" onclick='shareCardImg("card_general.php", <?php echo json_encode($gen_share_text); ?>, "general")'>📱 Share General Card (WhatsApp)</button>
             </div>
@@ -497,7 +497,7 @@ $guests = $stmt->fetchAll();
             </div>
             <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                 <a href="export.php?type=haldi" class="btn-luxury" style="padding: 8px 15px; font-size: 0.8rem; text-decoration: none;">Haldi List</a>
-                <a href="export.php?type=wedding" class="btn-luxury" style="padding: 8px 15px; font-size: 0.8rem; text-decoration: none;">Wedding List</a>
+                <a href="export.php?type=wedding" class="btn-luxury" style="padding: 8px 15px; font-size: 0.8rem; text-decoration: none;">Engagement List</a>
                 <a href="export.php?type=reception" class="btn-luxury" style="padding: 8px 15px; font-size: 0.8rem; text-decoration: none;">Reception List</a>
                 <a href="export.php?type=all" class="btn-luxury" style="padding: 8px 15px; font-size: 0.8rem; background: #444; border-color: #444; text-decoration: none;">Full Export</a>
             </div>
@@ -559,7 +559,7 @@ $guests = $stmt->fetchAll();
                                     $card_url = $base . "/card.php?g=" . $g['guest_hash'];
                                     
                                     $greeting_en = build_smart_greeting($g, 'en');
-                                    $share_text_en = "$greeting_en,\n\nWe cordially invite you to the engagement celebration of our son Saymen with Disha.\n\nYou can find all details and the RSVP here:\n$link\n\nWe look forward to celebrating with you!\n\nSapna & Manoj Tchanra";
+                                    $share_text_en = "$greeting_en,\n\nWe cordially invite you to the engagement celebration of our children Saymen with Disha.\n\nYou can find all details and the RSVP here:\n$link\n\nWe look forward to celebrating with you!\n\nRajinder Singh & Dimple Kapoor";
                                     
                                     $phone = $g['phone_number'] ?? '';
                                 ?>
@@ -648,7 +648,7 @@ $guests = $stmt->fetchAll();
                         if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
                             await navigator.share({
                                 files: [file],
-                                title: 'Wedding Invitation',
+                                title: 'Engagement Invitation',
                                 text: shareText
                             });
                         } else {
