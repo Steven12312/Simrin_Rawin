@@ -111,7 +111,7 @@ body {
     height: 100%;
     background: url('images/hero.jpg') no-repeat;
     background-size: cover;
-    background-position: center center;
+    background-position: center bottom;
 }
 
 
@@ -333,7 +333,7 @@ label {
 
     .hero {
         height: auto;
-        aspect-ratio: 775 / 820;
+        aspect-ratio: 4 / 3;
         min-height: unset;
     }
 
