@@ -85,7 +85,7 @@ $site_url = $base . "/index.php?g=" . $guest_hash;
         <div class="card-hero" style="background: #fdfaf7 url('images/story.jpg?v=3') no-repeat center center / cover; height: 320px; border-bottom: 2px solid #decba4;"></div>
         
         <div class="religious-icon" style="margin-top: -40px; width: 70px; height: 70px; background: #ffffff !important; opacity: 1 !important;">
-            
+            <img src="images/guru_nanak.png?v=1" alt="Guru Nanak" style="width: 100%; border-radius: 50%;">
         </div>
 
         <div class="card-content" style="background: #fdfaf7 !important; padding: 15px 30px 40px; opacity: 1 !important;">

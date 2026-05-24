@@ -118,7 +118,7 @@ $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']),
         <div class="card-hero"></div>
         
         <div class="religious-icon">
-            
+            <img src="images/guru_nanak.png?v=1" alt="Guru Nanak" style="width: 100%; border-radius: 50%;">
         </div>
 
         <div class="card-content">
