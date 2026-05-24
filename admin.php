@@ -136,6 +136,30 @@ if ($setupMode || $forcePasswordReset || !isset($_SESSION['admin_logged_in'])) {
     exit;
 }
 
+
+// One-time data migration for Person 2
+try {
+    $stmt_mig = $pdo->query("SELECT id, salutation_1, first_name_1, last_name_1, salutation_2, first_name_2, last_name_2 FROM guests WHERE first_name_2 IS NOT NULL AND first_name_2 != ''");
+    $guestsToMigrate = $stmt_mig->fetchAll();
+    if (count($guestsToMigrate) > 0) {
+        foreach ($guestsToMigrate as $g_mig) {
+            $sal1 = $g_mig['salutation_1'] ?: '';
+            $sal2 = $g_mig['salutation_2'] ?: '';
+            $f1 = trim($g_mig['first_name_1'] ?? '');
+            $f2 = trim($g_mig['first_name_2'] ?? '');
+            $l1 = trim($g_mig['last_name_1'] ?? '');
+            $l2 = trim($g_mig['last_name_2'] ?? '');
+            $newSal = trim($sal1 . ' & ' . $sal2, ' &');
+            $newFirst = ($l1 === $l2 || $l2 === '') ? ($f1 . ' & ' . $f2) : ($f1 . ' ' . $l1 . ' & ' . $f2);
+            $newLast = ($l1 === $l2 || $l2 === '') ? $l1 : $l2;
+            
+            $pdo->prepare("UPDATE guests SET salutation_1 = ?, first_name_1 = ?, last_name_1 = ?, salutation_2 = NULL, first_name_2 = NULL, last_name_2 = NULL WHERE id = ?")
+                ->execute([$newSal, $newFirst, $newLast, $g_mig['id']]);
+        }
+    }
+    $pdo->query("UPDATE guests SET salutation_2 = NULL, first_name_2 = NULL, last_name_2 = NULL");
+} catch (Exception $e) {}
+
 // Toggle Invitation Sent Status
 if (isset($_GET['toggle_sent'])) {
     $id = (int)$_GET['toggle_sent'];
@@ -152,24 +176,20 @@ if (isset($_POST['add_guest'])) {
     $familyMembers = decode_guest_list($familyRaw);
     $familyMembersJson = !empty($familyMembers) ? json_encode($familyMembers, JSON_UNESCAPED_UNICODE) : null;
     $with_family = isset($_POST['with_family']) ? (int)$_POST['with_family'] : 0;
-    $invitationDays = max(1, min(3, (int) ($_POST['invitation_days'] ?? 1)));
+    
 
     $phone = normalize_guest_value($_POST['phone_number'] ?? '');
 
     $status = $_POST['status'] ?? 'pending';
 
     $stmt = $pdo->prepare("INSERT INTO guests (guest_hash, salutation_1, first_name_1, last_name_1, salutation_2, first_name_2, last_name_2, phone_number, invitation_days, family_members, with_family, status) 
-                           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                           VALUES (?, ?, ?, ?, NULL, NULL, NULL, ?, 1, ?, ?, ?)");
     $stmt->execute([
         $hash,
         normalize_guest_value($_POST['salutation_1'] ?? ''),
         normalize_guest_value($_POST['first_name_1'] ?? ''),
         normalize_guest_value($_POST['last_name_1'] ?? ''),
-        normalize_guest_value($_POST['salutation_2'] ?? ''),
-        normalize_guest_value($_POST['first_name_2'] ?? ''),
-        normalize_guest_value($_POST['last_name_2'] ?? ''),
         $phone,
-        $invitationDays,
         $familyMembersJson,
         $with_family,
         $status
@@ -185,21 +205,17 @@ if (isset($_POST['update_guest'])) {
     $familyMembers = decode_guest_list($familyRaw);
     $familyMembersJson = !empty($familyMembers) ? json_encode($familyMembers, JSON_UNESCAPED_UNICODE) : null;
     $with_family = isset($_POST['with_family']) ? (int)$_POST['with_family'] : 0;
-    $invitationDays = max(1, min(3, (int) ($_POST['invitation_days'] ?? 1)));
+    
     $phone = normalize_guest_value($_POST['phone_number'] ?? '');
 
     $status = $_POST['status'] ?? 'pending';
 
-    $stmt = $pdo->prepare("UPDATE guests SET salutation_1 = ?, first_name_1 = ?, last_name_1 = ?, salutation_2 = ?, first_name_2 = ?, last_name_2 = ?, phone_number = ?, invitation_days = ?, family_members = ?, with_family = ?, status = ? WHERE id = ?");
+    $stmt = $pdo->prepare("UPDATE guests SET salutation_1 = ?, first_name_1 = ?, last_name_1 = ?, salutation_2 = NULL, first_name_2 = NULL, last_name_2 = NULL, phone_number = ?, invitation_days = 1, family_members = ?, with_family = ?, status = ? WHERE id = ?");
     $stmt->execute([
         normalize_guest_value($_POST['salutation_1'] ?? ''),
         normalize_guest_value($_POST['first_name_1'] ?? ''),
         normalize_guest_value($_POST['last_name_1'] ?? ''),
-        normalize_guest_value($_POST['salutation_2'] ?? ''),
-        normalize_guest_value($_POST['first_name_2'] ?? ''),
-        normalize_guest_value($_POST['last_name_2'] ?? ''),
         $phone,
-        $invitationDays,
         $familyMembersJson,
         $with_family,
         $status,
@@ -233,12 +249,6 @@ $ts = [
     'total_accepted' => 0,
     'total_declined' => 0,
     'total_pending' => 0,
-    'haldi_invited' => 0,
-    'haldi_accepted' => 0,
-    'wedding_invited' => 0,
-    'wedding_accepted' => 0,
-    'reception_invited' => 0,
-    'reception_accepted' => 0,
     'total_invitations_sent' => 0,
     'total_invitations' => 0
 ];
@@ -254,16 +264,10 @@ foreach ($all_guests_for_stats as $g) {
     $ppl_in_invite = count_guest_invited_people($g);
 
     $ts['total_invited'] += $ppl_in_invite;
-    if ($g['invitation_days'] >= 3) $ts['haldi_invited'] += $ppl_in_invite;
-    if ($g['invitation_days'] >= 2) $ts['wedding_invited'] += $ppl_in_invite;
-    $ts['reception_invited'] += $ppl_in_invite;
 
     if ($g['status'] === 'accepted') {
         $ppl_accepted = count_guest_confirmed_people($g);
         $ts['total_accepted'] += $ppl_accepted;
-        if ($g['invitation_days'] >= 3) $ts['haldi_accepted'] += $ppl_accepted;
-        if ($g['invitation_days'] >= 2) $ts['wedding_accepted'] += $ppl_accepted;
-        $ts['reception_accepted'] += $ppl_accepted;
     } elseif ($g['status'] === 'declined') {
         $ts['total_declined'] += $ppl_in_invite;
     } else {
@@ -272,14 +276,8 @@ foreach ($all_guests_for_stats as $g) {
 }
 
 // Guest List with Filter
-$filterDays = isset($_GET['days']) ? (int)$_GET['days'] : 0;
 $query = "SELECT * FROM guests";
 $params = [];
-
-if ($filterDays > 0) {
-    $query .= " WHERE invitation_days = ?";
-    $params[] = $filterDays;
-}
 
 $query .= " ORDER BY created_at DESC";
 $stmt = $pdo->prepare($query);
@@ -345,25 +343,10 @@ $guests = $stmt->fetchAll();
                 <small style="color: red;">✖ <?php echo $ts['total_declined']; ?> Declined</small><br>
                 <small style="color: grey;">⌛ <?php echo $ts['total_pending']; ?> Pending</small>
             </div>
-            <div class="stat-card">
-                <h4>Haldi RSVP</h4>
-                <div class="value"><?php echo $ts['haldi_accepted']; ?> / <?php echo $ts['haldi_invited']; ?></div>
-                <small>Confirmed Persons</small>
-            </div>
-            <div class="stat-card" style="border-left-color: var(--primary);">
-                <h4>Engagement RSVP</h4>
-                <div class="value"><?php echo $ts['wedding_accepted']; ?> / <?php echo $ts['wedding_invited']; ?></div>
-                <small>Confirmed Persons</small>
-            </div>
             <div class="stat-card" style="border-left-color: #28a745;">
                 <h4>Invitations Sent</h4>
                 <div class="value"><?php echo $ts['total_invitations_sent']; ?> / <?php echo $ts['total_invitations']; ?></div>
                 <small>Sent Invitations</small>
-            </div>
-            <div class="stat-card" style="border-left-color: green;">
-                <h4>Reception RSVP</h4>
-                <div class="value"><?php echo $ts['reception_accepted']; ?> / <?php echo $ts['reception_invited']; ?></div>
-                <small>Confirmed Persons</small>
             </div>
         </div>
 
@@ -380,11 +363,11 @@ $guests = $stmt->fetchAll();
                 
                 <div class="form-grid">
                     <div>
-                        <label>Salutation 1</label>
+                        <label>Title</label>
                         <select name="salutation_1">
                             <option value="">None</option>
                             <?php 
-                            $opts = ["Mr.", "Herr", "Mrs.", "Ms.", "Frau", "Dr.", "Prof.", "Family"];
+                            $opts = ["Mrs.", "Ms.", "Mr.", "Mrs. & Mr.", "Ms. & Mr.", "Mr. & Mr.", "Mrs. & Mrs.", "Family"];
                             foreach($opts as $opt) {
                                 $sel = ($editingGuest && $editingGuest['salutation_1'] == $opt) ? 'selected' : '';
                                 echo "<option value=\"$opt\" $sel>$opt</option>";
@@ -393,50 +376,20 @@ $guests = $stmt->fetchAll();
                         </select>
                     </div>
                     <div>
-                        <label>First Name 1</label>
-                        <input type="text" name="first_name_1" placeholder="First Name" required value="<?php echo htmlspecialchars($editingGuest['first_name_1'] ?? ''); ?>">
+                        <label>First Name</label>
+                        <input type="text" name="first_name_1" placeholder="e.g. Steven" required value="<?php echo htmlspecialchars($editingGuest['first_name_1'] ?? ''); ?>">
                     </div>
                     <div>
-                        <label>Last Name 1</label>
-                        <input type="text" name="last_name_1" placeholder="Last Name" required value="<?php echo htmlspecialchars($editingGuest['last_name_1'] ?? ''); ?>">
-                    </div>
-                </div>
-                <div class="form-grid" style="margin-top: 20px;">
-                    <div>
-                        <label>Salutation 2 (Optional)</label>
-                        <select name="salutation_2">
-                            <option value="">None</option>
-                            <?php 
-                            $opts = ["Mr.", "Herr", "Mrs.", "Ms.", "Frau", "Dr.", "Family"];
-                            foreach($opts as $opt) {
-                                $sel = ($editingGuest && $editingGuest['salutation_2'] == $opt) ? 'selected' : '';
-                                echo "<option value=\"$opt\" $sel>$opt</option>";
-                            }
-                            ?>
-                        </select>
-                    </div>
-                    <div>
-                        <label>First Name 2</label>
-                        <input type="text" name="first_name_2" placeholder="First Name" value="<?php echo htmlspecialchars($editingGuest['first_name_2'] ?? ''); ?>">
-                    </div>
-                    <div>
-                        <label>Last Name 2</label>
-                        <input type="text" name="last_name_2" placeholder="Last Name" value="<?php echo htmlspecialchars($editingGuest['last_name_2'] ?? ''); ?>">
+                        <label>Last Name</label>
+                        <input type="text" name="last_name_1" placeholder="e.g. Tchanra" value="<?php echo htmlspecialchars($editingGuest['last_name_1'] ?? ''); ?>">
                     </div>
                 </div>
                 <div style="margin-top: 20px;">
                     <label>WhatsApp Phone Number (with country code, e.g. 491761234567)</label>
                     <input type="text" name="phone_number" placeholder="49176..." value="<?php echo htmlspecialchars($editingGuest['phone_number'] ?? ''); ?>">
                 </div>
-                <div style="margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: end;">
-                    <div>
-                        <label>Invitation Days / Program</label>
-                        <select name="invitation_days">
-                            <option value="1" <?php echo ($editingGuest && $editingGuest['invitation_days'] == 1) ? 'selected' : ''; ?>>1 Day (Reception Only)</option>
-                            <option value="2" <?php echo ($editingGuest && $editingGuest['invitation_days'] == 2) ? 'selected' : ''; ?>>2 Days (Wedding + Reception)</option>
-                            <option value="3" <?php if(!$editingGuest || $editingGuest['invitation_days'] == 3) echo 'selected'; ?>>3 Days (Full: Haldi + Wedding + Reception)</option>
-                        </select>
-                    </div>
+                <div style="margin-top: 20px; display: grid; grid-template-columns: 1fr; gap: 20px; align-items: end;">
+
                     <div>
                         <label>RSVP Status (Manual Override)</label>
                         <select name="status">
@@ -496,10 +449,7 @@ $guests = $stmt->fetchAll();
                 <p style="margin: 5px 0 0; font-size: 0.9rem; color: #666;">Download guest lists for each event.</p>
             </div>
             <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                <a href="export.php?type=haldi" class="btn-luxury" style="padding: 8px 15px; font-size: 0.8rem; text-decoration: none;">Haldi List</a>
-                <a href="export.php?type=wedding" class="btn-luxury" style="padding: 8px 15px; font-size: 0.8rem; text-decoration: none;">Engagement List</a>
-                <a href="export.php?type=reception" class="btn-luxury" style="padding: 8px 15px; font-size: 0.8rem; text-decoration: none;">Reception List</a>
-                <a href="export.php?type=all" class="btn-luxury" style="padding: 8px 15px; font-size: 0.8rem; background: #444; border-color: #444; text-decoration: none;">Full Export</a>
+                <a href="export.php?type=all" class="btn-luxury" style="padding: 8px 15px; font-size: 0.8rem; background: #444; border-color: #444; text-decoration: none;">Export Guest List</a>
             </div>
         </div>
 
@@ -509,19 +459,14 @@ $guests = $stmt->fetchAll();
             <div style="margin-bottom: 20px; display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
                 <input type="text" id="guestSearch" placeholder="Search by name, phone or status..." onkeyup="filterGuests()" style="padding: 12px; border-radius: 10px; border: 1px solid #ddd; width: 100%; max-width: 400px; font-family: 'Outfit', sans-serif;">
                 
-                <select id="daysFilter" onchange="window.location.href='admin.php?days=' + this.value" style="padding: 12px; border-radius: 10px; border: 1px solid #ddd; font-family: 'Outfit', sans-serif; background: white; cursor: pointer;">
-                    <option value="0">All Invitation Days</option>
-                    <option value="1" <?php echo $filterDays == 1 ? 'selected' : ''; ?>>1 Day (Reception)</option>
-                    <option value="2" <?php echo $filterDays == 2 ? 'selected' : ''; ?>>2 Days (Wedding+)</option>
-                    <option value="3" <?php echo $filterDays == 3 ? 'selected' : ''; ?>>3 Days (Full)</option>
-                </select>
+
             </div>
             <div style="overflow-x: auto;">
                 <table>
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Days</th>
+                            
                             <th>Sent</th>
                             <th>Status</th>
                             <th>WhatsApp Share</th>
@@ -540,7 +485,7 @@ $guests = $stmt->fetchAll();
                                 </div>
                                 <?php endif; ?>
                             </td>
-                            <td><?php echo $g['invitation_days']; ?></td>
+                            
                             <td>
                                 <a href="?toggle_sent=<?php echo $g['id']; ?>" class="btn-luxury" style="padding: 5px 10px; font-size: 0.7rem; background: <?php echo $g['invitation_sent'] ? '#28a745' : '#6c757d'; ?>; border-color: <?php echo $g['invitation_sent'] ? '#28a745' : '#6c757d'; ?>; text-decoration: none;">
                                     <?php echo $g['invitation_sent'] ? 'Yes' : 'No'; ?>
