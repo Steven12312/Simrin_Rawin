@@ -101,7 +101,16 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
                 <div class="invitation-header" style="line-height: 1.8; margin-bottom: 40px; text-transform: none; letter-spacing: 1px; font-size: 1.1rem; color: #555;">
                     <div data-i18n="blessings" style="font-style: italic; color: var(--secondary); margin-bottom: 15px;">
                         With the blessings of our Grandparents<br>
-                        <strong>[Grandparents Placeholder]</strong>
+                        <div style="display: flex; justify-content: space-between; text-align: center; margin-top: 10px; font-size: 0.95rem; gap: 15px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 0.7rem; letter-spacing: 1px; color: var(--secondary); text-transform: uppercase; margin-bottom: 4px;">Grandparents of Groom</div>
+                                <strong>[Grandfather & Grandmother Kapoor]</strong>
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="font-size: 0.7rem; letter-spacing: 1px; color: var(--secondary); text-transform: uppercase; margin-bottom: 4px;">Grandparents of Bride</div>
+                                <strong>[Grandfather & Grandmother Arenja]</strong>
+                            </div>
+                        </div>
                     </div>
                     
                     <div style="display: flex; justify-content: space-between; text-align: center; margin-top: 25px; font-weight: 400; font-size: 0.95rem; gap: 15px;">
