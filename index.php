@@ -252,7 +252,7 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
         </section>
 
         <div class="family-cartoon-container fade-in">
-            <img src="images/story.jpg?v=3" alt="Family Photo">
+            <img src="images/hugging.jpg?v=3" alt="Family Photo">
             <div class="contact-section" style="margin-top: 25px; text-align: center; padding: 20px; border-top: 1px solid #eee;">
                 <h4 style="margin-bottom: 20px; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; color: var(--secondary); font-weight: 700;">Kontakt</h4>
                 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; line-height: 1.6;">
