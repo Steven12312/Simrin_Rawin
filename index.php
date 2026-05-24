@@ -289,7 +289,7 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
         const i18n = {
             en: {
                 hero_sub: "We are getting engaged!",
-                blessings: "With the blessings of<br><strong>Late Smt. Laxmi Devi & Late Shri Hondraj Tchanra</strong><br>&<br><strong>Late Smt. Chambeli Devi & Late Shri Dev Raj Gandhi</strong>",
+                blessings: "With the blessings of<br><strong>[Grandparents of Groom]</strong><br>&<br><strong>[Grandparents of Bride]</strong>",
                 parents_invite: "<strong>Rajinder Singh & Dimple Kapoor</strong><br>request the honour of your presence at the engagement celebration of our children",
                 invite_prefix: "Dear",
                 invite_text: "cordially invite you to the engagement celebration of our children.",
@@ -338,7 +338,7 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
             },
             de: {
                 hero_sub: "Wir verloben uns!",
-                blessings: "Mit dem Segen von<br><strong>Verst. Smt. Laxmi Devi & Verst. Shri Hondraj Tchanra</strong><br>&<br><strong>Verst. Smt. Chambeli Devi & Verst. Shri Dev Raj Gandhi</strong>",
+                blessings: "Mit dem Segen von<br><strong>[Grosseltern des Bräutigams]</strong><br>&<br><strong>[Grosseltern der Braut]</strong>",
                 parents_invite: "<strong>Rajinder Singh & Dimple Kapoor</strong><br>bitten um die Ehre Ihrer Anwesenheit bei der Verlobungsfeier unserer Kinder",
                 invite_text: "laden Sie herzlich zur Verlobungsfeier unserer Kinder ein.",
                 generic_invite_text: "Wir freuen uns darauf, mit euch zu feiern!",
