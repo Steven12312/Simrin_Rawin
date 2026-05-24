@@ -61,11 +61,12 @@ $site_url = $base . "/index.php?g=" . $guest_hash;
             z-index: 10;
             background: white;
             border-radius: 50%;
-            padding: 10px;
+            padding: 0;
+            overflow: hidden;
             border: 3px solid var(--secondary);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-        .religious-icon img { width: 100%; border-radius: 50%; }
+        .religious-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
         .card-content { padding: 0 40px 40px; }
         .card-title { font-size: 1rem; color: var(--secondary); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
         .guest-title { font-size: 1.6rem; color: var(--primary); margin: 20px 0; font-weight: 700; }
@@ -82,10 +83,10 @@ $site_url = $base . "/index.php?g=" . $guest_hash;
 
     <!-- Removed fade-in class to prevent 'washed out' capture during animation -->
     <div id="capture" class="card-container" style="background: #fdfaf7 !important; border: 1px solid #ddd; opacity: 1 !important; transform: none !important; width: 450px !important;">
-        <div class="card-hero" style="background: #fdfaf7 url('images/story.jpg?v=3') no-repeat center center / cover; height: 320px; border-bottom: 2px solid #decba4;"></div>
+        <div class="card-hero" style="background: #fdfaf7 url('images/story.jpg?v=3') no-repeat center 25% / cover; height: 260px; border-bottom: 2px solid #decba4;"></div>
         
-        <div class="religious-icon" style="margin-top: -40px; width: 70px; height: 70px; background: #ffffff !important; opacity: 1 !important;">
-            <img src="images/guru_nanak.png?v=1" alt="Guru Nanak" style="width: 100%; border-radius: 50%;">
+        <div class="religious-icon" style="margin-top: -40px; width: 80px; height: 80px; background: #ffffff !important; opacity: 1 !important;">
+            <img src="images/guru_nanak.png?v=1" alt="Guru Nanak" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
         </div>
 
         <div class="card-content" style="background: #fdfaf7 !important; padding: 15px 30px 40px; opacity: 1 !important;">

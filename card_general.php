@@ -30,7 +30,7 @@ $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']),
         }
         .card-hero {
             height: 180px;
-            background: #fdfaf7 url('images/story.jpg?v=3') no-repeat center center / cover;
+            background: #fdfaf7 url('images/story.jpg?v=3') no-repeat center 25% / cover;
             position: relative;
             border-bottom: 2px solid #decba4;
         }
@@ -42,11 +42,12 @@ $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']),
             z-index: 10;
             background: white;
             border-radius: 50%;
-            padding: 8px;
+            padding: 0;
+            overflow: hidden;
             border: 2px solid #decba4;
             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
-        .religious-icon img { width: 100%; border-radius: 50%; }
+        .religious-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
         .card-content { padding: 10px 30px 40px; background: #fdfaf7; }
         .serif { font-family: 'Playfair Display', serif; }
         
@@ -117,8 +118,8 @@ $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']),
     <div id="capture" class="card-container" style="background: #fdfaf7 !important; width: 450px !important;">
         <div class="card-hero"></div>
         
-        <div class="religious-icon">
-            <img src="images/guru_nanak.png?v=1" alt="Guru Nanak" style="width: 100%; border-radius: 50%;">
+        <div class="religious-icon" style="width: 70px; height: 70px; margin-top: -35px;">
+            <img src="images/guru_nanak.png?v=1" alt="Guru Nanak" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
         </div>
 
         <div class="card-content">

@@ -86,10 +86,11 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
         <!-- Invitation Section -->
         <section id="invitation">
             <div class="invitation-card fade-in">
-                
-                <!-- Religious Photo removed -->
-
-                <?php if ($guest): ?>
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <div style="width: 90px; height: 90px; margin: -60px auto 0; background: white; border-radius: 50%; border: 3px solid var(--secondary); box-shadow: 0 10px 20px rgba(0,0,0,0.1); overflow: hidden;">
+                        <img src="images/guru_nanak.png?v=1" alt="Religious Icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                    </div>
+                </div>                <?php if ($guest): ?>
                 <div style="margin-bottom: 40px; text-align: center;">
                     <p style="font-size: 1rem; color: #666; margin-bottom: 5px;">Dear</p>
                     <div style="font-size: 1.6rem; font-weight: 700; color: var(--primary); word-wrap: break-word;">
