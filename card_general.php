@@ -29,7 +29,7 @@ $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']),
             position: relative;
         }
         .card-hero {
-            height: 180px;
+            height: 250px;
             background: #fdfaf7 url('images/story.jpg?v=3') no-repeat center 25% / cover;
             position: relative;
             border-bottom: 2px solid #decba4;
@@ -48,7 +48,7 @@ $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']),
             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
         .religious-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
-        .card-content { padding: 10px 30px 40px; background: #fdfaf7; }
+        .card-content { padding: 5px 30px 20px; background: #fdfaf7; }
         .serif { font-family: 'Playfair Display', serif; }
         
         .blessings {
@@ -56,7 +56,7 @@ $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']),
             font-style: italic;
             color: #8a6d3b;
             line-height: 1.3;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         
         .parent-info {

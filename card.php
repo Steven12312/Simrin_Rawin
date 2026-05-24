@@ -67,11 +67,11 @@ $site_url = $base . "/index.php?g=" . $guest_hash;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         .religious-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
-        .card-content { padding: 0 40px 40px; }
-        .card-title { font-size: 1rem; color: var(--secondary); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
-        .guest-title { font-size: 1.6rem; color: var(--primary); margin: 20px 0; font-weight: 700; }
-        .card-main { font-size: 2.2rem; margin: 15px 0; line-height: 1.1; }
-        .card-ornament { width: 60px; height: 2px; background: var(--secondary); margin: 25px auto; opacity: 0.3; }
+        .card-content { padding: 0 30px 20px; }
+        .card-title { font-size: 1rem; color: var(--secondary); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 5px; }
+        .guest-title { font-size: 1.6rem; color: var(--primary); margin: 10px 0; font-weight: 700; }
+        .card-main { font-size: 2.2rem; margin: 10px 0; line-height: 1.1; }
+        .card-ornament { width: 60px; height: 2px; background: var(--secondary); margin: 15px auto; opacity: 0.3; }
         .card-link { display: inline-block; padding: 15px 30px; background: var(--gold-gradient); color: white; border-radius: 50px; text-decoration: none; font-weight: 700; box-shadow: 0 10px 20px rgba(184, 134, 11, 0.2); }
     </style>
 </head>
@@ -83,33 +83,33 @@ $site_url = $base . "/index.php?g=" . $guest_hash;
 
     <!-- Removed fade-in class to prevent 'washed out' capture during animation -->
     <div id="capture" class="card-container" style="background: #fdfaf7 !important; border: 1px solid #ddd; opacity: 1 !important; transform: none !important; width: 450px !important;">
-        <div class="card-hero" style="background: #fdfaf7 url('images/story.jpg?v=3') no-repeat center 25% / cover; height: 260px; border-bottom: 2px solid #decba4;"></div>
+        <div class="card-hero" style="background: #fdfaf7 url('images/story.jpg?v=3') no-repeat center 25% / cover; height: 350px; border-bottom: 2px solid #decba4;"></div>
         
         <div class="religious-icon" style="margin-top: -40px; width: 80px; height: 80px; background: #ffffff !important; opacity: 1 !important;">
             <img src="images/guru_nanak.png?v=1" alt="Guru Nanak" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
         </div>
 
-        <div class="card-content" style="background: #fdfaf7 !important; padding: 15px 30px 40px; opacity: 1 !important;">
-            <p style="color: #555555 !important; font-size: 1.2rem; margin-bottom: 5px; font-weight: 600; margin-top: 10px;">Dear</p>
-            <div class="guest-title" style="color: #000000 !important; font-size: 2.5rem; font-weight: 900; line-height: 1.1; letter-spacing: -0.5px;"><?php echo htmlspecialchars($guest_name); ?></div>
+        <div class="card-content" style="background: #fdfaf7 !important; padding: 5px 30px 20px; opacity: 1 !important;">
+            <p style="color: #555555 !important; font-size: 1.1rem; margin-bottom: 2px; font-weight: 600; margin-top: 5px;">Dear</p>
+            <div class="guest-title" style="color: #000000 !important; font-size: 2.2rem; font-weight: 900; line-height: 1.1; letter-spacing: -0.5px;"><?php echo htmlspecialchars($guest_name); ?></div>
             
-            <div style="width: 40px; height: 1px; background: #8a6d3b; margin: 15px auto; opacity: 0.6;"></div>
+            <div style="width: 40px; height: 1px; background: #8a6d3b; margin: 10px auto; opacity: 0.6;"></div>
 
-            <div class="card-title serif" style="color: #8a6d3b !important; margin-top: 5px; font-weight: 700; letter-spacing: 3px; font-size: 1.1rem;">You are Invited</div>
+            <div class="card-title serif" style="color: #8a6d3b !important; margin-top: 0px; font-weight: 700; letter-spacing: 3px; font-size: 1rem;">You are Invited</div>
             
-            <h1 class="card-main serif" style="color: #700000 !important; font-size: 2.5rem; margin: 10px 0; line-height: 1; font-weight: 800;">
+            <h1 class="card-main serif" style="color: #700000 !important; font-size: 2.3rem; margin: 5px 0; line-height: 1; font-weight: 800;">
                 Saymen<br>
-                <span style="font-size: 0.5em; font-family: 'Outfit'; display: block; margin: 5px 0; color: #333333 !important; font-weight: 400;">&amp;</span>
+                <span style="font-size: 0.5em; font-family: 'Outfit'; display: block; margin: 2px 0; color: #333333 !important; font-weight: 400;">&amp;</span>
                 Disha
             </h1>
             
-            <div style="width: 100%; height: 1px; background: #decba4; margin: 15px 0; opacity: 0.5;"></div>
+            <div style="width: 100%; height: 1px; background: #decba4; margin: 10px 0; opacity: 0.5;"></div>
             
-            <p style="margin-bottom: 20px; color: #222222 !important; font-size: 1.1rem; font-weight: 700; line-height: 1.3;">We look forward to celebrating our special day with you!</p>
+            <p style="margin-bottom: 10px; color: #222222 !important; font-size: 1rem; font-weight: 700; line-height: 1.3;">We look forward to celebrating our special day with you!</p>
             
-            <div style="margin-top: 20px; background: #fcf4e8; padding: 15px; border-radius: 12px; border: 1px solid #eee;">
-                <p style="color: #700000 !important; font-weight: 800; font-size: 1.2rem; margin-bottom: 3px;">Royal Stage</p>
-                <p style="color: #444444 !important; font-size: 1rem; margin-bottom: 10px; font-weight: 600;">Im Hegen 16, 22113 Glinde</p>
+            <div style="margin-top: 10px; background: #fcf4e8; padding: 10px; border-radius: 12px; border: 1px solid #eee;">
+                <p style="color: #700000 !important; font-weight: 800; font-size: 1.1rem; margin-bottom: 2px;">Royal Stage</p>
+                <p style="color: #444444 !important; font-size: 0.95rem; margin-bottom: 5px; font-weight: 600;">Im Hegen 16, 22113 Glinde</p>
                 
                 <a href="https://www.google.com/maps/search/?api=1&query=Royal+Stage+Im+Hegen+16+22113+Glinde" 
                    data-html2canvas-ignore
