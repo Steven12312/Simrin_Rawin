@@ -21,7 +21,7 @@
         <h1>Impressum</h1>
         <p>Verantwortlich für den Inhalt dieser Webseite:</p>
         <p>
-            <strong>Dimple Kapoor</strong><br>
+            <strong>Sapna Tchanra</strong><br>
             Kurfürstenstraße 5<br>
             63452 Hanau<br>
             E-Mail: steventchanra123@gmail.com
