@@ -362,18 +362,18 @@ $guests = $stmt->fetchAll();
                 <?php endif; ?>
                 
                 <div class="form-grid">
-                    <div>
-                        <label>Title</label>
-                        <select name="salutation_1">
-                            <option value="">None</option>
+                    <div style="grid-column: 1 / -1; margin-bottom: 10px;">
+                        <label style="font-weight: 600; margin-bottom: 8px; display: block;">Select Title (Anrede auswählen)</label>
+                        <div style="display: flex; gap: 15px; flex-wrap: wrap; background: #fff; padding: 15px; border-radius: 10px; border: 1px solid #ddd;">
                             <?php 
-                            $opts = ["Mrs.", "Ms.", "Mr.", "Mrs. & Mr.", "Ms. & Mr.", "Mr. & Mr.", "Mrs. & Mrs.", "Family"];
+                            $opts = ["Mrs. & Mr.", "Ms. & Mr.", "Mr.", "Mrs.", "Ms.", "Mr. & Mr.", "Mrs. & Mrs.", "Family"];
                             foreach($opts as $opt) {
-                                $sel = ($editingGuest && $editingGuest['salutation_1'] == $opt) ? 'selected' : '';
-                                echo "<option value=\"$opt\" $sel>$opt</option>";
+                                $checked = ($editingGuest && $editingGuest['salutation_1'] == $opt) ? 'checked' : '';
+                                echo "<label style='cursor: pointer; display: flex; align-items: center; gap: 5px;'><input type='radio' name='salutation_1' value=\"$opt\" $checked> $opt</label>";
                             }
                             ?>
-                        </select>
+                            <label style='cursor: pointer; display: flex; align-items: center; gap: 5px;'><input type='radio' name='salutation_1' value="" <?php echo (!$editingGuest || empty($editingGuest['salutation_1'])) ? 'checked' : ''; ?>> None</label>
+                        </div>
                     </div>
                     <div>
                         <label>First Name</label>
