@@ -177,16 +177,18 @@ if (isset($_POST['add_guest'])) {
     $familyMembersJson = !empty($familyMembers) ? json_encode($familyMembers, JSON_UNESCAPED_UNICODE) : null;
     $with_family = isset($_POST['with_family']) ? (int)$_POST['with_family'] : 0;
     
+    $top_title = $_POST['top_title'] ?? '';
+    $bottom_title = $_POST['bottom_title'] ?? '';
+    $salutation_1 = trim($top_title . ($top_title && $bottom_title ? ' & ' : '') . $bottom_title);
 
     $phone = normalize_guest_value($_POST['phone_number'] ?? '');
-
     $status = $_POST['status'] ?? 'pending';
 
     $stmt = $pdo->prepare("INSERT INTO guests (guest_hash, salutation_1, first_name_1, last_name_1, salutation_2, first_name_2, last_name_2, phone_number, invitation_days, family_members, with_family, status) 
                            VALUES (?, ?, ?, ?, NULL, NULL, NULL, ?, 1, ?, ?, ?)");
     $stmt->execute([
         $hash,
-        normalize_guest_value($_POST['salutation_1'] ?? ''),
+        normalize_guest_value($salutation_1),
         normalize_guest_value($_POST['first_name_1'] ?? ''),
         normalize_guest_value($_POST['last_name_1'] ?? ''),
         $phone,
@@ -361,18 +363,35 @@ $guests = $stmt->fetchAll();
                 <input type="hidden" name="guest_id" value="<?php echo $editingGuest['id']; ?>">
                 <?php endif; ?>
                 
+                <?php
+                $top_title = '';
+                $bottom_title = '';
+                if ($editingGuest && $editingGuest['salutation_1']) {
+                    $parts = explode(' & ', $editingGuest['salutation_1']);
+                    $top_title = $parts[0] ?? '';
+                    $bottom_title = $parts[1] ?? '';
+                }
+                ?>
                 <div class="form-grid">
-                    <div style="grid-column: 1 / -1; margin-bottom: 10px;">
-                        <label style="font-weight: 600; margin-bottom: 8px; display: block;">Select Title (Anrede auswählen)</label>
-                        <div style="display: flex; gap: 15px; flex-wrap: wrap; background: #fff; padding: 15px; border-radius: 10px; border: 1px solid #ddd;">
-                            <?php 
-                            $opts = ["Mrs. & Mr.", "Ms. & Mr.", "Mr.", "Mrs.", "Ms.", "Mr. & Mr.", "Mrs. & Mrs.", "Family"];
-                            foreach($opts as $opt) {
-                                $checked = ($editingGuest && $editingGuest['salutation_1'] == $opt) ? 'checked' : '';
-                                echo "<label style='cursor: pointer; display: flex; align-items: center; gap: 5px;'><input type='radio' name='salutation_1' value=\"$opt\" $checked> $opt</label>";
-                            }
-                            ?>
-                            <label style='cursor: pointer; display: flex; align-items: center; gap: 5px;'><input type='radio' name='salutation_1' value="" <?php echo (!$editingGuest || empty($editingGuest['salutation_1'])) ? 'checked' : ''; ?>> None</label>
+                    <div style="grid-column: 1 / -1; margin-bottom: 10px; display: flex; gap: 20px;">
+                        <div style="flex: 1; background: #fff; padding: 15px; border-radius: 10px; border: 1px solid #ddd;">
+                            <label style="font-weight: 600; margin-bottom: 8px; display: block;">Title 1 (Top)</label>
+                            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                                <label style='cursor: pointer;'><input type='radio' name='top_title' value="Mrs." <?php echo $top_title == 'Mrs.' ? 'checked' : ''; ?>> Mrs.</label>
+                                <label style='cursor: pointer;'><input type='radio' name='top_title' value="Ms." <?php echo $top_title == 'Ms.' ? 'checked' : ''; ?>> Ms.</label>
+                                <label style='cursor: pointer;'><input type='radio' name='top_title' value="Mr." <?php echo $top_title == 'Mr.' ? 'checked' : ''; ?>> Mr.</label>
+                                <label style='cursor: pointer;'><input type='radio' name='top_title' value="Family" <?php echo $top_title == 'Family' ? 'checked' : ''; ?>> Family</label>
+                                <label style='cursor: pointer;'><input type='radio' name='top_title' value="" <?php echo $top_title == '' ? 'checked' : ''; ?>> None</label>
+                            </div>
+                        </div>
+                        <div style="flex: 1; background: #fff; padding: 15px; border-radius: 10px; border: 1px solid #ddd;">
+                            <label style="font-weight: 600; margin-bottom: 8px; display: block;">Title 2 (Bottom - Optional)</label>
+                            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                                <label style='cursor: pointer;'><input type='radio' name='bottom_title' value="Mr." <?php echo $bottom_title == 'Mr.' ? 'checked' : ''; ?>> Mr.</label>
+                                <label style='cursor: pointer;'><input type='radio' name='bottom_title' value="Mrs." <?php echo $bottom_title == 'Mrs.' ? 'checked' : ''; ?>> Mrs.</label>
+                                <label style='cursor: pointer;'><input type='radio' name='bottom_title' value="Ms." <?php echo $bottom_title == 'Ms.' ? 'checked' : ''; ?>> Ms.</label>
+                                <label style='cursor: pointer;'><input type='radio' name='bottom_title' value="" <?php echo $bottom_title == '' ? 'checked' : ''; ?>> None</label>
+                            </div>
                         </div>
                     </div>
                     <div>
