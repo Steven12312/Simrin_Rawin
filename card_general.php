@@ -30,7 +30,7 @@ $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']),
         }
         .card-hero {
             height: 180px;
-            background: #fdfaf7 url('images/story.jpg') no-repeat center center / cover;
+            background: #fdfaf7 url('images/story.jpg?v=3') no-repeat center center / cover;
             position: relative;
             border-bottom: 2px solid #decba4;
         }
@@ -124,9 +124,9 @@ $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']),
         <div class="card-content">
             <div class="blessings">
                 With the blessings of<br>
-                <strong>Late Smt. Laxmi Devi & Late Shri Hondraj Tchanra</strong><br>
+                <strong>[Grandparents of Groom]</strong><br>
                 &<br>
-                <strong>Late Smt. Chambeli Devi & Late Shri Dev Raj Gandhi</strong>
+                <strong>[Grandparents of Bride]</strong>
             </div>
 
             <h1 class="serif" style="color: #700000; font-size: 2.2rem; margin: 0; line-height: 1;">
@@ -136,30 +136,20 @@ $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']),
                 Son of <strong>Rajinder Singh & Dimple Kapoor</strong>
             </div>
             
-            <div style="font-size: 0.9rem; font-family: 'Outfit'; margin: 5px 0; color: #333; font-weight: 400;">weds</div>
+            <div style="font-size: 0.9rem; font-family: 'Outfit'; margin: 5px 0; color: #333; font-weight: 400;">&amp;</div>
             
             <h1 class="serif" style="color: #700000; font-size: 2.2rem; margin: 0; line-height: 1;">
                 Disha
             </h1>
             <div class="parent-info">
-                Daughter of <strong>Mrs. Sangeeta & Mr. Ram Ratan Malhotra</strong>
+                Daughter of <strong>Mr. Hitesh & Mrs. Harsha Arenja</strong>
             </div>
             
             <div style="width: 40px; height: 1px; background: #decba4; margin: 15px auto;"></div>
 
             <div class="schedule-section">
                 <div class="day-title">
-                    <span>Engagement Ceremony</span>
-                    <span class="day-date">24. JUN 2026</span>
-                </div>
-                <div class="event-row"><span class="event-time">12:00 PM</span> <span class="event-desc">Welcome of Guests</span></div>
-                <div class="event-row"><span class="event-time">01:00 PM</span> <span class="event-desc">Nashta (Lunch)</span></div>
-                <div class="event-row"><span class="event-time">02:00 PM</span> <span class="event-desc">Baraat</span></div>
-            </div>
-
-            <div class="schedule-section">
-                <div class="day-title">
-                    <span>Reception</span>
+                    <span>Engagement Party</span>
                     <span class="day-date">25. JUN 2026</span>
                 </div>
                 <div class="event-row"><span class="event-time">04:00 PM</span> <span class="event-desc">Welcome of Guests</span></div>

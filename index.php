@@ -30,7 +30,7 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
     <!-- Open Graph / WhatsApp Preview -->
     <meta property="og:title" content="Engagement of Saymen & Disha">
     <meta property="og:description" content="You are cordially invited to celebrate our engagement! Click to view your personal invitation.">
-    <meta property="og:image" content="https://<?php echo $_SERVER['HTTP_HOST'] . rtrim(dirname($_SERVER['PHP_SELF']), '/'); ?>/images/story.jpg">
+    <meta property="og:image" content="https://<?php echo $_SERVER['HTTP_HOST'] . rtrim(dirname($_SERVER['PHP_SELF']), '/'); ?>/images/story.jpg?v=3">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
@@ -252,7 +252,7 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
         </section>
 
         <div class="family-cartoon-container fade-in">
-            <img src="images/story.jpg" alt="Family Photo">
+            <img src="images/story.jpg?v=3" alt="Family Photo">
             <div class="contact-section" style="margin-top: 25px; text-align: center; padding: 20px; border-top: 1px solid #eee;">
                 <h4 style="margin-bottom: 20px; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; color: var(--secondary); font-weight: 700;">Kontakt</h4>
                 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; line-height: 1.6;">
@@ -265,7 +265,7 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
         <!-- Story Section -->
         <section id="story">
             <div class="story-card fade-in">
-                <div><img src="images/story.jpg" alt="Couple"></div>
+                <div><img src="images/story.jpg?v=3" alt="Couple"></div>
                 <div>
                     <h2 class="serif" data-i18n="story_title" style="font-size: 2.2rem; margin-bottom: 20px;">Special Message from Saymen & Disha</h2>
                     <p style="color: #666; font-size: 1.1rem;" data-i18n="story_text">Join us on our journey to our big day. We can't wait to celebrate this special moment with our family and closest friends.</p>

@@ -44,7 +44,7 @@ $site_url = $base . "/index.php?g=" . $guest_hash;
         }
         .card-hero {
             height: 250px;
-            background: url('images/hero.jpg') no-repeat center center / cover;
+            background: url('images/hero.jpg?v=3') no-repeat center center / cover;
             position: relative;
         }
         .card-hero::after {
@@ -82,7 +82,7 @@ $site_url = $base . "/index.php?g=" . $guest_hash;
 
     <!-- Removed fade-in class to prevent 'washed out' capture during animation -->
     <div id="capture" class="card-container" style="background: #fdfaf7 !important; border: 1px solid #ddd; opacity: 1 !important; transform: none !important; width: 450px !important;">
-        <div class="card-hero" style="background: #fdfaf7 url('images/story.jpg') no-repeat center center / cover; height: 320px; border-bottom: 2px solid #decba4;"></div>
+        <div class="card-hero" style="background: #fdfaf7 url('images/story.jpg?v=3') no-repeat center center / cover; height: 320px; border-bottom: 2px solid #decba4;"></div>
         
         <div class="religious-icon" style="margin-top: -40px; width: 70px; height: 70px; background: #ffffff !important; opacity: 1 !important;">
             
@@ -98,7 +98,7 @@ $site_url = $base . "/index.php?g=" . $guest_hash;
             
             <h1 class="card-main serif" style="color: #700000 !important; font-size: 2.5rem; margin: 10px 0; line-height: 1; font-weight: 800;">
                 Saymen<br>
-                <span style="font-size: 0.5em; font-family: 'Outfit'; display: block; margin: 5px 0; color: #333333 !important; font-weight: 400;">weds</span>
+                <span style="font-size: 0.5em; font-family: 'Outfit'; display: block; margin: 5px 0; color: #333333 !important; font-weight: 400;">&amp;</span>
                 Disha
             </h1>
             
