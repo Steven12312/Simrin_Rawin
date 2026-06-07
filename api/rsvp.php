@@ -85,7 +85,7 @@ try {
     $stmt = $pdo->prepare("UPDATE guests SET status = ?, message = ?, attending_members = ?, attending_members_version = 2, updated_at = CURRENT_TIMESTAMP WHERE guest_hash = ?");
     $stmt->execute([$status, $message, $attendingJson, $guest_hash]);
 
-    $to = 'steventchanra123@gmail.com';
+    $to = 'Saymen.kapoor.singh@icloud.com';
     $subject = 'Neue RSVP Rückmeldung: ' . ($guest['first_name_1'] . ' ' . $guest['last_name_1']);
     $attendingList = $attendingMembers ? implode(', ', $attendingMembers) : 'Keine';
     $guestFullName = build_guest_display_name($guest);
