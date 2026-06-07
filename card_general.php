@@ -125,10 +125,10 @@ $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']),
         <div class="card-content">
             <div class="blessings">
                 With the blessings of our Grandparents<br>
-                <strong>Late Sdr. Roshan Kapoor</strong>, <strong>Late Smt. Murti Kaur Kapoor</strong><br>
-                <strong>Mr. Manor Singh Kapoor</strong>, <strong>Late Smt. Pushpa Kaur Kapoor</strong><br>
-                <strong>Mr. Babulal Arenja</strong>, <strong>Mrs. Geeta Arenja</strong><br>
-                <strong>Mr. Narayan Dass Jagga</strong>, <strong>Mrs. Shaku Jagga</strong>
+                <strong>Late Sdr. Roshan Kapoor & Late Smt. Murti Kaur Kapoor</strong><br>
+                <strong>Mr. Manor Singh Kapoor & Late Smt. Pushpa Kaur Kapoor</strong><br>
+                <strong>Mr. Babulal Arenja & Mrs. Geeta Arenja</strong><br>
+                <strong>Mr. Narayan Dass Jagga & Mrs. Shaku Jagga</strong>
             </div>
 
             <h1 class="serif" style="color: #700000; font-size: 2.2rem; margin: 0; line-height: 1;">
