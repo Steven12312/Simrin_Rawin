@@ -102,14 +102,20 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
                 <div class="invitation-header" style="line-height: 1.8; margin-bottom: 40px; text-transform: none; letter-spacing: 1px; font-size: 1.1rem; color: #555;">
                     <div data-i18n="blessings" style="font-style: italic; color: var(--secondary); margin-bottom: 15px;">
                         With the blessings of our Grandparents<br>
-                        <div style="display: flex; justify-content: space-between; text-align: center; margin-top: 10px; font-size: 0.95rem; gap: 15px;">
+                        <div style="display: flex; justify-content: space-between; text-align: center; margin-top: 10px; font-size: 0.85rem; gap: 15px;">
                             <div style="flex: 1;">
                                 <div style="font-size: 0.7rem; letter-spacing: 1px; color: var(--secondary); text-transform: uppercase; margin-bottom: 4px;">Grandparents of Groom</div>
-                                <strong>[Grandfather & Grandmother Kapoor]</strong>
+                                <strong>Late Sdr. Roshan Kapoor</strong><br>
+                                <strong>Late Smt. Murti Kaur Kapoor</strong><br>
+                                <strong>Mr. Manor Singh Kapoor</strong><br>
+                                <strong>Late Smt. Pushpa Kaur Kapoor</strong>
                             </div>
                             <div style="flex: 1;">
                                 <div style="font-size: 0.7rem; letter-spacing: 1px; color: var(--secondary); text-transform: uppercase; margin-bottom: 4px;">Grandparents of Bride</div>
-                                <strong>[Grandfather & Grandmother Arenja]</strong>
+                                <strong>Mr. Babulal Arenja</strong><br>
+                                <strong>Mrs. Geeta Arenja</strong><br>
+                                <strong>Mr. Narayan Dass Jagga</strong><br>
+                                <strong>Mrs. Shaku Jagga</strong>
                             </div>
                         </div>
                     </div>
@@ -290,7 +296,7 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
         const i18n = {
             en: {
                 hero_sub: "We are getting engaged!",
-                blessings: "With the blessings of<br><strong>[Grandparents of Groom]</strong><br>&<br><strong>[Grandparents of Bride]</strong>",
+                blessings: "With the blessings of our Grandparents<br><div style='display:flex;gap:15px;margin-top:10px;font-size:0.85rem;text-align:center'><div style='flex:1'><div style='font-size:0.7rem;letter-spacing:1px;color:var(--secondary);text-transform:uppercase;margin-bottom:4px'>Grandparents of Groom</div><strong>Late Sdr. Roshan Kapoor</strong><br><strong>Late Smt. Murti Kaur Kapoor</strong><br><strong>Mr. Manor Singh Kapoor</strong><br><strong>Late Smt. Pushpa Kaur Kapoor</strong></div><div style='flex:1'><div style='font-size:0.7rem;letter-spacing:1px;color:var(--secondary);text-transform:uppercase;margin-bottom:4px'>Grandparents of Bride</div><strong>Mr. Babulal Arenja</strong><br><strong>Mrs. Geeta Arenja</strong><br><strong>Mr. Narayan Dass Jagga</strong><br><strong>Mrs. Shaku Jagga</strong></div></div>",
                 parents_invite: "<strong>Rajinder Singh & Dimple Kapoor</strong><br>request the honour of your presence at the engagement celebration of our children",
                 invite_prefix: "Dear",
                 invite_text: "cordially invite you to the engagement celebration of our children.",
@@ -339,7 +345,7 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
             },
             de: {
                 hero_sub: "Wir verloben uns!",
-                blessings: "Mit dem Segen von<br><strong>[Grosseltern des Bräutigams]</strong><br>&<br><strong>[Grosseltern der Braut]</strong>",
+                blessings: "Mit dem Segen unserer Großeltern<br><div style='display:flex;gap:15px;margin-top:10px;font-size:0.85rem;text-align:center'><div style='flex:1'><div style='font-size:0.7rem;letter-spacing:1px;color:var(--secondary);text-transform:uppercase;margin-bottom:4px'>Großeltern des Bräutigams</div><strong>Late Sdr. Roshan Kapoor</strong><br><strong>Late Smt. Murti Kaur Kapoor</strong><br><strong>Mr. Manor Singh Kapoor</strong><br><strong>Late Smt. Pushpa Kaur Kapoor</strong></div><div style='flex:1'><div style='font-size:0.7rem;letter-spacing:1px;color:var(--secondary);text-transform:uppercase;margin-bottom:4px'>Großeltern der Braut</div><strong>Mr. Babulal Arenja</strong><br><strong>Mrs. Geeta Arenja</strong><br><strong>Mr. Narayan Dass Jagga</strong><br><strong>Mrs. Shaku Jagga</strong></div></div>",
                 parents_invite: "<strong>Rajinder Singh & Dimple Kapoor</strong><br>bitten um die Ehre Ihrer Anwesenheit bei der Verlobungsfeier unserer Kinder",
                 invite_text: "laden Sie herzlich zur Verlobungsfeier unserer Kinder ein.",
                 generic_invite_text: "Wir freuen uns darauf, mit euch zu feiern!",
