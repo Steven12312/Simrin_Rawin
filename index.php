@@ -261,8 +261,8 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
             <div class="contact-section" style="margin-top: 25px; text-align: center; padding: 20px; border-top: 1px solid #eee;">
                 <h4 style="margin-bottom: 20px; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; color: var(--secondary); font-weight: 700;">Kontakt</h4>
                 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; line-height: 1.6;">
-                    <div><strong>Hitesh Arenja</strong><br><a href="tel:+" style="color: inherit; text-decoration: none; opacity: 0.8;">+49 ...</a></div>
-                    <div><strong>Rajinder Singh Kapoor</strong><br><a href="tel:+" style="color: inherit; text-decoration: none; opacity: 0.8;">+49 ...</a></div>
+                    <div><strong>Raju Singh Kapoor</strong><br><a href="tel:+4917634136963" style="color: inherit; text-decoration: none; opacity: 0.8;">+49 176 34136963</a></div>
+                    <div><strong>Geetika Kapoor</strong><br><a href="tel:+4917672659389" style="color: inherit; text-decoration: none; opacity: 0.8;">+49 176 72659389</a></div>
                 </div>
             </div>
         </div>
