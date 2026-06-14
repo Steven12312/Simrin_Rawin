@@ -118,7 +118,7 @@ $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']),
     <div id="capture" class="card-container" style="background: #fdfaf7 !important; width: 450px !important;">
         <div class="card-hero"></div>
         
-        <div class="religious-icon" style="width: 70px; height: 70px; margin-top: -35px;">
+        <div class="religious-icon" style="width: 90px; height: 90px; margin-top: -45px;">
             <img src="images/guru_nanak.png?v=1" alt="Guru Nanak" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
         </div>
 
@@ -130,6 +130,8 @@ $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']),
                 <strong>Mr. Babulal Arenja & Mrs. Geeta Arenja</strong><br>
                 <strong>Mr. Narayan Dass Jagga & Mrs. Shaku Jagga</strong>
             </div>
+            
+            <div class="serif" style="color: #8a6d3b; margin: 15px 0 10px; font-weight: 700; letter-spacing: 1px; font-size: 0.9rem; text-transform: uppercase;">You are invited to the Engagement Party of</div>
 
             <h1 class="serif" style="color: #700000; font-size: 2.2rem; margin: 0; line-height: 1;">
                 Saymen

@@ -85,7 +85,7 @@ $site_url = $base . "/index.php?g=" . $guest_hash;
     <div id="capture" class="card-container" style="background: #fdfaf7 !important; border: 1px solid #ddd; opacity: 1 !important; transform: none !important; width: 450px !important;">
         <div class="card-hero" style="background: #fdfaf7 url('images/hero.jpg?v=4') no-repeat center 15% / cover; height: 350px; border-bottom: 2px solid #decba4;"></div>
         
-        <div class="religious-icon" style="margin-top: -40px; width: 80px; height: 80px; background: #ffffff !important; opacity: 1 !important;">
+        <div class="religious-icon" style="margin-top: -50px; width: 100px; height: 100px; background: #ffffff !important; opacity: 1 !important;">
             <img src="images/guru_nanak.png?v=1" alt="Guru Nanak" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
         </div>
 
@@ -95,7 +95,7 @@ $site_url = $base . "/index.php?g=" . $guest_hash;
             
             <div style="width: 40px; height: 1px; background: #8a6d3b; margin: 10px auto; opacity: 0.6;"></div>
 
-            <div class="card-title serif" style="color: #8a6d3b !important; margin-top: 0px; font-weight: 700; letter-spacing: 3px; font-size: 1rem;">You are Invited</div>
+            <div class="card-title serif" style="color: #8a6d3b !important; margin-top: 0px; font-weight: 700; letter-spacing: 1px; font-size: 0.95rem; text-transform: uppercase;">You are invited to the Engagement Party of</div>
             
             <h1 class="card-main serif" style="color: #700000 !important; font-size: 2.3rem; margin: 5px 0; line-height: 1; font-weight: 800;">
                 Saymen<br>
