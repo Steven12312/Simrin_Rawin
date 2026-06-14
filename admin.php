@@ -455,7 +455,7 @@ $guests = $stmt->fetchAll();
                     $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
                     $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']), '/');
                     $gen_link = $base . "/index.php";
-                    $gen_share_text = "We cordially invite you to the engagement celebration of our children Saymen with Disha.\n\nYou can find all details and the program here:\n$gen_link\n\nWe look forward to celebrating with you!\n\nRajinder Singh & Dimple Kapoor";
+                    $gen_share_text = "Wir laden Sie herzlich zur Verlobungsfeier unserer Kinder Saymen und Disha ein.\n\nAlle Details zur Feier und den Programmablauf finden Sie hier. Wir bitten Sie höflichst, uns unbedingt über den Einladungslink mitzuteilen, ob Sie anwesend sein werden oder nicht, damit wir entsprechend planen können:\n$gen_link\n\nWir freuen uns sehr darauf, diesen besonderen Anlass mit Ihnen zu feiern!\n\nHerzliche Grüße,\nRajinder Singh & Dimple Kapoor";
                 ?>
                 <button class="btn-luxury" style="background: #007bff; border-color: #007bff;" onclick='shareCardImg("card_general.php", <?php echo json_encode($gen_share_text); ?>, "general")'>📱 Share General Card (WhatsApp)</button>
             </div>
@@ -522,16 +522,16 @@ $guests = $stmt->fetchAll();
                                     $link = $base . "/index.php?g=" . $g['guest_hash']; 
                                     $card_url = $base . "/card.php?g=" . $g['guest_hash'];
                                     
-                                    $greeting_en = build_smart_greeting($g, 'en');
-                                    $share_text_en = "$greeting_en,\n\nWe cordially invite you to the engagement celebration of our children Saymen with Disha.\n\nYou can find all details and the RSVP here:\n$link\n\nWe look forward to celebrating with you!\n\nRajinder Singh & Dimple Kapoor";
+                                    $greeting_de = build_smart_greeting($g, 'de');
+                                    $share_text_de = "$greeting_de,\n\nwir laden Sie herzlich zur Verlobungsfeier unserer Kinder Saymen und Disha ein.\n\nAlle Details zur Feier finden Sie unter dem folgenden Link. Wir bitten Sie höflichst, uns unbedingt über diesen Link mitzuteilen, ob Sie anwesend sein werden oder nicht, damit wir entsprechend planen können:\n$link\n\nWir freuen uns sehr darauf, diesen besonderen Anlass mit Ihnen zu feiern!\n\nHerzliche Grüße,\nRajinder Singh & Dimple Kapoor";
                                     
                                     $phone = $g['phone_number'] ?? '';
                                 ?>
                                 <div style="display: flex; gap: 8px; flex-direction: column;">
-                                    <button class="btn-luxury" id="share-btn-<?php echo $g['guest_hash']; ?>" style="padding: 10px; font-size: 0.8rem;" onclick='shareCardImg("card.php?g=<?php echo $g['guest_hash']; ?>", <?php echo json_encode($share_text_en); ?>, "<?php echo $g['guest_hash']; ?>")'>📱 Share Card + Text (WhatsApp)</button>
+                                    <button class="btn-luxury" id="share-btn-<?php echo $g['guest_hash']; ?>" style="padding: 10px; font-size: 0.8rem;" onclick='shareCardImg("card.php?g=<?php echo $g['guest_hash']; ?>", <?php echo json_encode($share_text_de); ?>, "<?php echo $g['guest_hash']; ?>")'>📱 Share Card + Text (WhatsApp)</button>
                                     
                                     <?php if ($phone): ?>
-                                    <button class="btn-luxury" style="padding: 10px; font-size: 0.8rem; background: #25D366; border-color: #25D366;" onclick='openWhatsApp(<?php echo json_encode($phone); ?>, <?php echo json_encode($share_text_en); ?>)'>💬 Direct WA (Text Only)</button>
+                                    <button class="btn-luxury" style="padding: 10px; font-size: 0.8rem; background: #25D366; border-color: #25D366;" onclick='openWhatsApp(<?php echo json_encode($phone); ?>, <?php echo json_encode($share_text_de); ?>)'>💬 Direct WA (Text Only)</button>
                                     <?php endif; ?>
                                 </div>
                             </td>
