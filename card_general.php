@@ -30,7 +30,7 @@ $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']),
         }
         .card-hero {
             height: 250px;
-            background: #fdfaf7 url('images/story.jpg?v=3') no-repeat center 25% / cover;
+            background: #fdfaf7 url('images/hero.jpg?v=4') no-repeat center 15% / cover;
             position: relative;
             border-bottom: 2px solid #decba4;
         }
@@ -156,8 +156,8 @@ $base = rtrim($protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']),
                 </div>
                 <div class="event-row"><span class="event-time">04:00 PM</span> <span class="event-desc">Welcome of Guests</span></div>
                 <div class="event-row"><span class="event-time">05:00 PM</span> <span class="event-desc">Light Music & Cocktails</span></div>
-                <div class="event-row"><span class="event-time">06:00 PM</span> <span class="event-desc">Nashta</span></div>
-                <div class="event-row"><span class="event-time">09:00 PM</span> <span class="event-desc">Dinner</span></div>
+                <div class="event-row"><span class="event-time">07:00 PM</span> <span class="event-desc">Nashta</span></div>
+                <div class="event-row"><span class="event-time">10:00 PM</span> <span class="event-desc">Dinner</span></div>
             </div>
 
             <div class="venue-box">

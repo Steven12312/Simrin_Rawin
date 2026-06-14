@@ -83,7 +83,7 @@ $site_url = $base . "/index.php?g=" . $guest_hash;
 
     <!-- Removed fade-in class to prevent 'washed out' capture during animation -->
     <div id="capture" class="card-container" style="background: #fdfaf7 !important; border: 1px solid #ddd; opacity: 1 !important; transform: none !important; width: 450px !important;">
-        <div class="card-hero" style="background: #fdfaf7 url('images/story.jpg?v=3') no-repeat center 25% / cover; height: 350px; border-bottom: 2px solid #decba4;"></div>
+        <div class="card-hero" style="background: #fdfaf7 url('images/hero.jpg?v=4') no-repeat center 15% / cover; height: 350px; border-bottom: 2px solid #decba4;"></div>
         
         <div class="religious-icon" style="margin-top: -40px; width: 80px; height: 80px; background: #ffffff !important; opacity: 1 !important;">
             <img src="images/guru_nanak.png?v=1" alt="Guru Nanak" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
