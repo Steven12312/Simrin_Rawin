@@ -171,11 +171,11 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
                                 <span class="timeline-event" data-i18n="t3_e2">Light Music and Cocktails</span>
                             </div>
                             <div class="timeline-row">
-                                <span class="timeline-time">06:00 PM</span>
+                                <span class="timeline-time">07:00 PM</span>
                                 <span class="timeline-event" data-i18n="t3_e3">Nashta</span>
                             </div>
                             <div class="timeline-row">
-                                <span class="timeline-time">09:00 PM</span>
+                                <span class="timeline-time">10:00 PM</span>
                                 <span class="timeline-event" data-i18n="t3_e4">Dinner</span>
                             </div>
                         </div>
