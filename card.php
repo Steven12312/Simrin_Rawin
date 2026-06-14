@@ -44,7 +44,7 @@ $site_url = $base . "/index.php?g=" . $guest_hash;
         }
         .card-hero {
             height: 250px;
-            background: url('images/hero.jpg?v=3') no-repeat center center / cover;
+            background: url('images/hero.jpg?v=4') no-repeat center center / cover;
             position: relative;
         }
         .card-hero::after {
