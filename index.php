@@ -163,13 +163,10 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
                         </div>
                         <div class="timeline-details">
                             <div class="timeline-row">
-                                <span class="timeline-time">04:00 PM</span>
+                                <span class="timeline-time">05:00 PM</span>
                                 <span class="timeline-event" data-i18n="t3_e1">Welcome of Guests</span>
                             </div>
-                            <div class="timeline-row">
-                                <span class="timeline-time">05:00 PM</span>
-                                <span class="timeline-event" data-i18n="t3_e2">Light Music and Cocktails</span>
-                            </div>
+
                             <div class="timeline-row">
                                 <span class="timeline-time">07:00 PM</span>
                                 <span class="timeline-event" data-i18n="t3_e3">Nashta</span>
@@ -316,7 +313,6 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
                 t2_e3: "Baraat",
                 tag3_title: "Reception",
                 t3_e1: "Welcome of Guests",
-                t3_e2: "Light Music and Cocktails",
                 t3_e3: "Nashta",
                 t3_e4: "Dinner",
                 rsvp_title: "Your RSVP",
@@ -364,7 +360,6 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
                 t2_e3: "Baraat",
                 tag3_title: "Reception",
                 t3_e1: "Willkommen der Gäste",
-                t3_e2: "Leichte Musik & Cocktails",
                 t3_e3: "Nashta",
                 t3_e4: "Abendessen",
                 rsvp_title: "Ihre Rückmeldung",
