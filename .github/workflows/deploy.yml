@@ -1,4 +1,4 @@
-name: Deploy website
+name: Deploy to ALL-INKL via FTP
 
 on:
   push:
@@ -6,21 +6,20 @@ on:
       - main
 
 jobs:
-  ftp-deploy:
+  web-deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
-
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          security: loose
-          state-name: .ftp-deploy-sync-state.json
-          timeout: 600000
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: w02137ae.kasserver.com
+        username: f0186f59
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: /
+        # If your ALL-INKL folder is a subfolder, change this to something like /subdomain-folder/
