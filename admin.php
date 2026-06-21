@@ -2,6 +2,7 @@
 session_start();
 require_once 'db.php';
 require_once 'guest_helpers.php';
+$eventsConfig = require 'config.events.php';
 
 $authError = null;
 $userCount = (int) $pdo->query("SELECT COUNT(*) FROM users")->fetchColumn();
@@ -67,6 +68,7 @@ if (!$setupMode && !$forcePasswordReset && isset($_POST['login'])) {
 
     if ($user && password_verify($password, $user['password_hash'])) {
         $_SESSION['admin_logged_in'] = true;
+        $_SESSION['admin_role'] = $user['role'];
     } else {
         $authError = "Invalid credentials";
     }
@@ -184,14 +186,20 @@ if (isset($_POST['add_guest'])) {
     $phone = normalize_guest_value($_POST['phone_number'] ?? '');
     $status = $_POST['status'] ?? 'pending';
 
-    $stmt = $pdo->prepare("INSERT INTO guests (guest_hash, salutation_1, first_name_1, last_name_1, salutation_2, first_name_2, last_name_2, phone_number, invitation_days, family_members, with_family, status) 
-                           VALUES (?, ?, ?, ?, NULL, NULL, NULL, ?, 1, ?, ?, ?)");
+    $guest_side = $_POST['guest_side'] ?? 'both';
+    $invited_events = isset($_POST['invited_events']) && is_array($_POST['invited_events']) ? $_POST['invited_events'] : [];
+    $invited_events_json = json_encode($invited_events);
+
+    $stmt = $pdo->prepare("INSERT INTO guests (guest_hash, guest_side, salutation_1, first_name_1, last_name_1, salutation_2, first_name_2, last_name_2, phone_number, invited_events, family_members, with_family, status) 
+                           VALUES (?, ?, ?, ?, ?, NULL, NULL, NULL, ?, ?, ?, ?, ?)");
     $stmt->execute([
         $hash,
+        $guest_side,
         normalize_guest_value($salutation_1),
         normalize_guest_value($_POST['first_name_1'] ?? ''),
         normalize_guest_value($_POST['last_name_1'] ?? ''),
         $phone,
+        $invited_events_json,
         $familyMembersJson,
         $with_family,
         $status
@@ -212,12 +220,18 @@ if (isset($_POST['update_guest'])) {
 
     $status = $_POST['status'] ?? 'pending';
 
-    $stmt = $pdo->prepare("UPDATE guests SET salutation_1 = ?, first_name_1 = ?, last_name_1 = ?, salutation_2 = NULL, first_name_2 = NULL, last_name_2 = NULL, phone_number = ?, invitation_days = 1, family_members = ?, with_family = ?, status = ? WHERE id = ?");
+    $guest_side = $_POST['guest_side'] ?? 'both';
+    $invited_events = isset($_POST['invited_events']) && is_array($_POST['invited_events']) ? $_POST['invited_events'] : [];
+    $invited_events_json = json_encode($invited_events);
+
+    $stmt = $pdo->prepare("UPDATE guests SET guest_side = ?, salutation_1 = ?, first_name_1 = ?, last_name_1 = ?, salutation_2 = NULL, first_name_2 = NULL, last_name_2 = NULL, phone_number = ?, invited_events = ?, family_members = ?, with_family = ?, status = ? WHERE id = ?");
     $stmt->execute([
+        $guest_side,
         normalize_guest_value($_POST['salutation_1'] ?? ''),
         normalize_guest_value($_POST['first_name_1'] ?? ''),
         normalize_guest_value($_POST['last_name_1'] ?? ''),
         $phone,
+        $invited_events_json,
         $familyMembersJson,
         $with_family,
         $status,
@@ -280,6 +294,13 @@ foreach ($all_guests_for_stats as $g) {
 // Guest List with Filter
 $query = "SELECT * FROM guests";
 $params = [];
+$admin_role = $_SESSION['admin_role'] ?? 'admin';
+
+if ($admin_role === 'bride') {
+    $query .= " WHERE guest_side IN ('bride', 'both')";
+} elseif ($admin_role === 'groom') {
+    $query .= " WHERE guest_side IN ('groom', 'both')";
+}
 
 $query .= " ORDER BY created_at DESC";
 $stmt = $pdo->prepare($query);
@@ -408,6 +429,18 @@ $guests = $stmt->fetchAll();
                     <input type="text" name="phone_number" placeholder="49176..." value="<?php echo htmlspecialchars($editingGuest['phone_number'] ?? ''); ?>">
                 </div>
                 <div style="margin-top: 20px; display: grid; grid-template-columns: 1fr; gap: 20px; align-items: end;">
+                    <?php if ($_SESSION['admin_role'] === 'admin'): ?>
+                    <div>
+                        <label>Guest Side</label>
+                        <select name="guest_side">
+                            <option value="both" <?php echo ($editingGuest && $editingGuest['guest_side'] == 'both') ? 'selected' : ''; ?>>Both (Gemeinsam)</option>
+                            <option value="bride" <?php echo ($editingGuest && $editingGuest['guest_side'] == 'bride') ? 'selected' : ''; ?>>Bride (Braut)</option>
+                            <option value="groom" <?php echo ($editingGuest && $editingGuest['guest_side'] == 'groom') ? 'selected' : ''; ?>>Groom (Bräutigam)</option>
+                        </select>
+                    </div>
+                    <?php else: ?>
+                    <input type="hidden" name="guest_side" value="<?php echo $_SESSION['admin_role']; ?>">
+                    <?php endif; ?>
 
                     <div>
                         <label>RSVP Status (Manual Override)</label>
@@ -416,6 +449,19 @@ $guests = $stmt->fetchAll();
                             <option value="accepted" <?php echo ($editingGuest && $editingGuest['status'] == 'accepted') ? 'selected' : ''; ?>>Accepted (Zugesagt)</option>
                             <option value="declined" <?php echo ($editingGuest && $editingGuest['status'] == 'declined') ? 'selected' : ''; ?>>Declined (Abgesagt)</option>
                         </select>
+                    </div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <label>Invited Events</label>
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap; background: #fff; padding: 15px; border-radius: 10px; border: 1px solid #ddd;">
+                        <?php 
+                        $guestEvents = $editingGuest && $editingGuest['invited_events'] ? json_decode($editingGuest['invited_events'], true) : [];
+                        foreach ($eventsConfig['events'] as $eventKey => $eventObj): ?>
+                            <label style="cursor: pointer;">
+                                <input type="checkbox" name="invited_events[]" value="<?php echo $eventKey; ?>" <?php echo in_array($eventKey, $guestEvents) ? 'checked' : ''; ?>>
+                                <?php echo htmlspecialchars($eventObj['title']); ?>
+                            </label>
+                        <?php endforeach; ?>
                     </div>
                 </div>
                 <div style="margin-top: 20px;">

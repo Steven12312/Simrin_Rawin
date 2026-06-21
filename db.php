@@ -91,6 +91,7 @@ try {
         id INT AUTO_INCREMENT PRIMARY KEY,
         username VARCHAR(50) NOT NULL UNIQUE,
         password_hash VARCHAR(255) NOT NULL,
+        role ENUM('admin', 'bride', 'groom') NOT NULL DEFAULT 'admin',
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;");
 
@@ -98,6 +99,7 @@ try {
     $pdo->exec("CREATE TABLE IF NOT EXISTS guests (
         id INT AUTO_INCREMENT PRIMARY KEY,
         guest_hash VARCHAR(32) NOT NULL UNIQUE,
+        guest_side ENUM('bride', 'groom', 'both') NOT NULL DEFAULT 'both',
         salutation_1 VARCHAR(20) DEFAULT NULL,
         first_name_1 VARCHAR(100) NOT NULL,
         last_name_1 VARCHAR(100) NOT NULL,
@@ -105,10 +107,11 @@ try {
         first_name_2 VARCHAR(100) DEFAULT NULL,
         last_name_2 VARCHAR(100) DEFAULT NULL,
         phone_number VARCHAR(50) DEFAULT NULL,
-        invitation_days INT NOT NULL DEFAULT 1,
+        invited_events JSON DEFAULT NULL,
         family_members JSON DEFAULT NULL,
         with_family TINYINT(1) NOT NULL DEFAULT 0,
-        status ENUM('pending', 'accepted', 'declined') DEFAULT 'pending',
+        status ENUM('pending', 'accepted', 'declined', 'partial') DEFAULT 'pending',
+        rsvp_status_events JSON DEFAULT NULL,
         attending_members JSON DEFAULT NULL,
         attending_members_version TINYINT(1) NOT NULL DEFAULT 1,
         invitation_sent TINYINT(1) NOT NULL DEFAULT 0,
@@ -120,6 +123,10 @@ try {
 
     // 3. Check for specific column migrations
     $requiredColumns = [
+        'role' => "ALTER TABLE users ADD COLUMN role ENUM('admin', 'bride', 'groom') NOT NULL DEFAULT 'admin' AFTER password_hash",
+        'guest_side' => "ALTER TABLE guests ADD COLUMN guest_side ENUM('bride', 'groom', 'both') NOT NULL DEFAULT 'both' AFTER guest_hash",
+        'invited_events' => "ALTER TABLE guests ADD COLUMN invited_events JSON DEFAULT NULL AFTER phone_number",
+        'rsvp_status_events' => "ALTER TABLE guests ADD COLUMN rsvp_status_events JSON DEFAULT NULL AFTER status",
         'with_family' => "ALTER TABLE guests ADD COLUMN with_family TINYINT(1) NOT NULL DEFAULT 0 AFTER family_members",
         'attending_members_version' => "ALTER TABLE guests ADD COLUMN attending_members_version TINYINT(1) NOT NULL DEFAULT 1 AFTER attending_members",
         'phone_number' => "ALTER TABLE guests ADD COLUMN phone_number VARCHAR(50) DEFAULT NULL AFTER last_name_2",
@@ -128,7 +135,11 @@ try {
 
     foreach ($requiredColumns as $column => $migrationSql) {
         try {
-            $pdo->query("SELECT $column FROM guests LIMIT 1");
+            if ($column === 'role') {
+                $pdo->query("SELECT $column FROM users LIMIT 1");
+            } else {
+                $pdo->query("SELECT $column FROM guests LIMIT 1");
+            }
         } catch (\PDOException $e) {
             try {
                 $pdo->exec($migrationSql);
