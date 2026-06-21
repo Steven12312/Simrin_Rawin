@@ -41,14 +41,27 @@ function build_guest_primary_attendees(array $guest): array
 {
     $attendees = [];
 
-    $primaryOne = format_guest_person_name(
-        $guest['salutation_1'] ?? '',
-        $guest['first_name_1'] ?? '',
-        $guest['last_name_1'] ?? ''
-    );
+    $salutation = $guest['salutation_1'] ?? '';
+    $firstName = $guest['first_name_1'] ?? '';
+    $lastName = $guest['last_name_1'] ?? '';
 
-    if ($primaryOne !== '') {
-        $attendees[] = $primaryOne;
+    $salutations = array_values(array_filter(array_map('trim', explode('&', $salutation))));
+    $firstNames = array_values(array_filter(array_map('trim', explode('&', $firstName))));
+
+    $count = max(count($salutations), count($firstNames), 1);
+
+    for ($i = 0; $i < $count; $i++) {
+        $sal = $salutations[$i] ?? '';
+        $first = $firstNames[$i] ?? '';
+
+        if ($first === '' && count($firstNames) === 1 && $i === 0) {
+            $first = $firstNames[0];
+        }
+
+        $person = format_guest_person_name($sal, $first, $lastName);
+        if ($person !== '') {
+            $attendees[] = $person;
+        }
     }
 
     $primaryTwo = format_guest_person_name(
