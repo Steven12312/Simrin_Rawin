@@ -199,7 +199,7 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
                 <!-- RSVP Section -->
                 <div class="rsvp-form-container">
                     <h3 class="serif" data-i18n="rsvp_title" style="margin-bottom: 10px;">Your RSVP</h3>
-                    <p data-i18n="rsvp_deadline" style="color: var(--secondary); font-weight: 600; margin-bottom: 30px; font-size: 0.95rem; letter-spacing: 0.5px;">Please RSVP by June 1st - we look forward to your response!</p>
+                    <p data-i18n="rsvp_deadline" style="color: var(--secondary); font-weight: 600; margin-bottom: 30px; font-size: 0.95rem; letter-spacing: 0.5px;">Please RSVP by July 25th - we look forward to your response!</p>
                     <?php if ($guest): ?>
                         <?php if ($guest['status'] === 'pending' || $guest['status'] === 'declined'): ?>
                         <form id="rsvpForm">
@@ -316,7 +316,7 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
                 t3_e3: "Nashta",
                 t3_e4: "Dinner",
                 rsvp_title: "Your RSVP",
-                rsvp_deadline: "Please RSVP by May 20th, 2026 – we look forward to your response!",
+                rsvp_deadline: "Please RSVP by July 25th, 2026 – we look forward to your response!",
                 rsvp_label: "Will you attend?",
                 opt_choose: "Please choose...",
                 opt_yes: "Yes, I/we will be there!",
@@ -363,7 +363,7 @@ $invitation_days = $guest ? (int)$guest['invitation_days'] : 3;
                 t3_e3: "Nashta",
                 t3_e4: "Abendessen",
                 rsvp_title: "Ihre Rückmeldung",
-                rsvp_deadline: "Wir bitten um Ihre Rückmeldung bis zum 20. Mai 2026 – wir freuen uns sehr auf Ihre Zusage!",
+                rsvp_deadline: "Wir bitten um Ihre Rückmeldung bis zum 25. Juli 2026 – wir freuen uns sehr auf Ihre Zusage!",
                 rsvp_label: "Kommen Sie?",
                 opt_choose: "Bitte wählen...",
                 opt_yes: "Ja, wir kommen sehr gerne!",
