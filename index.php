@@ -78,7 +78,7 @@ $saved_rsvp_events = $guest && $guest['rsvp_status_events'] ? json_decode($guest
     </div>
 
     <header class="hero">
-        <div class="hero-image-wrapper"><div class="hero-image" style="background-image: none; background-color: #fdfaf7;"></div></div>
+        <div class="hero-image-wrapper"><div class="hero-image"></div></div>
         <div class="container" style="position: relative; z-index: 5; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding: 60px 20px;">
             <div style="margin-bottom: 40px; opacity: 0.8; font-size: 0.9rem; color: #333; text-align: center;">
                 <span data-i18n="scroll_text">Scroll for details</span><br>
@@ -236,9 +236,17 @@ $saved_rsvp_events = $guest && $guest['rsvp_status_events'] ? json_decode($guest
         <!-- Story Section -->
         <section id="story">
             <div class="story-card fade-in">
+                <div style="width: 100%; margin-bottom: 30px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <img src="images/story.jpg" alt="Simrin and Rawin" style="width: 100%; height: auto; display: block;">
+                </div>
                 <div>
                     <h2 class="serif" data-i18n="story_title" style="font-size: 2.2rem; margin-bottom: 20px;">Special Message from Simrin & Rawin</h2>
                     <p style="color: #666; font-size: 1.1rem;" data-i18n="story_text">Join us on our journey to our big day. We can't wait to celebrate this special moment with our family and closest friends.</p>
+                </div>
+            </div>
+            <div style="margin-top: 40px; text-align: center;">
+                <div style="width: 100%; max-width: 600px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <img src="images/hugging.jpg" alt="Simrin and Rawin" style="width: 100%; height: auto; display: block;">
                 </div>
             </div>
         </section>
